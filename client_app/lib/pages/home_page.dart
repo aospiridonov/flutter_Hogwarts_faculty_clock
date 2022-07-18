@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hogwarts faculty clock'),
+        title: const Text('Hogwarts houses clock'),
         centerTitle: true,
       ),
       body: Container(
