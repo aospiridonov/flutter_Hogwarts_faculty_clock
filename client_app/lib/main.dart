@@ -12,12 +12,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hogwarts faculty clock',
+      title: 'Hogwarts houses clock',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
       debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+      routes: {
+        HousePage.routeName: (_) => const HousePage(),
+      },
     );
   }
 }

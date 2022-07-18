@@ -2,6 +2,8 @@ import 'package:client_app/widgets/chart.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  static const routeName = '/';
+
   const HomePage({Key? key}) : super(key: key);
 
   @override
