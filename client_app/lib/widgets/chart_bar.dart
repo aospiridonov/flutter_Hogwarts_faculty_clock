@@ -20,21 +20,18 @@ class ChartBar extends StatelessWidget {
       builder: (context, constraints) {
         return Column(
           children: [
-            Container(
-              //height: constraints.maxHeight * 0.15,
-              child: FittedBox(
-                child: Text(
-                  '$label',
-                  style: const TextStyle(
-                    fontSize: 20,
-                  ),
+            FittedBox(
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 20,
                 ),
               ),
             ),
             SizedBox(
               height: constraints.maxHeight * 0.02,
             ),
-            Container(
+            SizedBox(
               height: constraints.maxHeight * 0.6,
               //width: 50,
               child: Stack(
@@ -64,14 +61,11 @@ class ChartBar extends StatelessWidget {
             SizedBox(
               height: constraints.maxHeight * 0.02,
             ),
-            Container(
-              //height: constraints.maxHeight * 0.15,
-              child: FittedBox(
-                child: Text(
-                  '$amount',
-                  style: const TextStyle(
-                    fontSize: 18,
-                  ),
+            FittedBox(
+              child: Text(
+                '$amount',
+                style: const TextStyle(
+                  fontSize: 18,
                 ),
               ),
             ),

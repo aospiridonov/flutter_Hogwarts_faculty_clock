@@ -14,7 +14,7 @@ class HousePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as HouseArguments;
-    final house = args.house as House;
+    final house = args.house;
     return Scaffold(
       appBar: AppBar(),
       body: Card(
