@@ -12,17 +12,16 @@ class DummyHogwartsBranchRepository implements HogwartsBranchRepository {
   }
 
   @override
-  List<House> getHouses() {
-    return _storage.getHouses(
-      branchId: branchId,
-    );
-  }
+  Future<Houses> get houses => _storage.getHouses(branchId: branchId);
 
   @override
-  House getHouse({required int houseId}) {
+  Future<House> getHouse({required int houseId}) {
     return _storage.getHouse(
       branchId: branchId,
       id: houseId,
     );
   }
+
+  @override
+  Stream<Houses> get stream => _storage.stream;
 }

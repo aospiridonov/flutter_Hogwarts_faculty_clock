@@ -3,6 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'house.freezed.dart';
 
+typedef Houses = List<House>;
+
 @freezed
 class House with _$House {
   const factory House({

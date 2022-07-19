@@ -15,10 +15,10 @@ class DummyHouseRepository implements HouseRepository {
   }
 
   @override
-  void decrement(int points) {
-    var house = _storage.getHouse(branchId: branchId, id: houseId);
+  Future<void> decrement(int points) async {
+    var house = await _storage.getHouse(branchId: branchId, id: houseId);
     points = house.points - points;
-    _storage.setHouse(
+    return _storage.setHouse(
       branchId: branchId,
       id: houseId,
       house: house.copyWith(
@@ -28,9 +28,9 @@ class DummyHouseRepository implements HouseRepository {
   }
 
   @override
-  void increment(int points) {
-    var house = _storage.getHouse(branchId: branchId, id: houseId);
-    _storage.setHouse(
+  Future<void> increment(int points) async {
+    var house = await _storage.getHouse(branchId: branchId, id: houseId);
+    return _storage.setHouse(
       branchId: branchId,
       id: houseId,
       house: house.copyWith(
@@ -40,17 +40,17 @@ class DummyHouseRepository implements HouseRepository {
   }
 
   @override
-  int get total => _storage
-      .getHouses(
-        branchId: branchId,
-      )
-      .fold<int>(0, (p, e) => p + e.points);
+  Future<int> get total async {
+    final houses = await _storage.getHouses(branchId: branchId);
+    return houses.fold<int>(0, (p, e) => p + e.points);
+  }
 
   @override
-  int get points => _storage
-      .getHouse(
-        branchId: branchId,
-        id: houseId,
-      )
-      .points;
+  Future<int> get points async {
+    final house = await _storage.getHouse(
+      branchId: branchId,
+      id: houseId,
+    );
+    return house.points;
+  }
 }

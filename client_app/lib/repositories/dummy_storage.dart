@@ -1,8 +1,15 @@
+import 'dart:async';
+
 import 'package:client_app/data/models/models.dart';
 import 'package:client_app/constants/house_constants.dart' as constants;
 
-class DummyStorage {
+import 'storage.dart';
+
+class DummyStorage implements Storage {
   late final Map<int, List<House>> _map;
+
+  final StreamController<Houses> controller =
+      StreamController<Houses>.broadcast();
 
   DummyStorage._() {
     _setup();
@@ -10,20 +17,27 @@ class DummyStorage {
 
   static DummyStorage instance = DummyStorage._();
 
-  List<House> getHouses({required int branchId}) {
-    return _map[branchId] ?? _empty();
+  @override
+  Stream<Houses> get stream => controller.stream;
+
+  @override
+  Future<Houses> getHouses({required int branchId}) async {
+    final houses = _map[branchId] ?? _empty();
+    return houses;
   }
 
-  House getHouse({required int branchId, required int id}) {
+  @override
+  Future<House> getHouse({required int branchId, required int id}) async {
     return _map[branchId]?[id] ?? _empty()[id];
   }
 
-  void setHouse({
+  Future<void> setHouse({
     required int branchId,
     required int id,
     required House house,
-  }) {
+  }) async {
     _map[branchId]![id] = house;
+    controller.add(_map[branchId] ?? _empty());
   }
 
   void _setup() {

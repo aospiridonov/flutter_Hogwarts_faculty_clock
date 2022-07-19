@@ -10,19 +10,19 @@ class HouseCubit extends Cubit<HouseState> {
 
   HouseCubit(this._repository) : super(const HouseState.points(0, 1));
 
-  void init() {
-    emit(HouseState.points(_repository.points, _repository.total));
+  Future<void> load() async {
+    final points = await _repository.points;
+    final total = await _repository.total;
+    emit(HouseState.points(points, total));
   }
 
-  void increment(int points) {
-    _repository.increment(points);
-    //repo
-    emit(HouseState.points(_repository.points, _repository.total));
+  Future<void> increment(int points) async {
+    await _repository.increment(points);
+    await load();
   }
 
-  void decrement(int points) {
-    //repo
-    _repository.decrement(points);
-    emit(HouseState.points(_repository.points, _repository.total));
+  Future<void> decrement(int points) async {
+    await _repository.decrement(points);
+    await load();
   }
 }

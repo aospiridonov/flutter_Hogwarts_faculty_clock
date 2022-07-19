@@ -27,7 +27,7 @@ class HousePage extends StatelessWidget {
                 branchId: args.branchId,
                 houseId: house.id,
               ),
-            )..init(),
+            )..load(),
             child: BlocBuilder<HouseCubit, HouseState>(
               builder: (context, state) {
                 int points = state.points;
