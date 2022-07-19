@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ChartBar extends StatelessWidget {
   final String label;
   final int amount;
-  final double total;
+  final int total;
   final Color color;
 
   const ChartBar({
@@ -41,7 +41,7 @@ class ChartBar extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 children: [
                   FractionallySizedBox(
-                    heightFactor: total,
+                    heightFactor: amount / total,
                     child: Container(
                       decoration: BoxDecoration(
                         color: color,

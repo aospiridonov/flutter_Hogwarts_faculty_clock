@@ -1,5 +1,9 @@
-import 'package:client_app/widgets/chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:client_app/blocs/blocs.dart';
+import 'package:client_app/repositories/dummy_hogwarts_repository.dart';
+import 'package:client_app/widgets/home_view.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/';
@@ -8,15 +12,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hogwarts houses clock'),
-        centerTitle: true,
-      ),
-      body: Container(
-        color: Colors.grey[100],
-        child: Chart(),
-      ),
+    return BlocProvider(
+      create: (context) => HogwartsBloc(DummyHogwartsRepository())
+        ..add(const HogwartsEvent.fetch(id: 0)),
+      child: const HomeView(),
     );
   }
 }

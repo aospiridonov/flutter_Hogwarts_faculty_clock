@@ -1,7 +1,10 @@
-import 'package:client_app/widgets/chart_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../pages/pages.dart';
+import 'package:client_app/blocs/blocs.dart';
+import 'package:client_app/data/models/models.dart';
+import 'package:client_app/pages/pages.dart';
+import 'package:client_app/widgets/chart_bar.dart';
 
 class Chart extends StatelessWidget {
   const Chart({Key? key}) : super(key: key);
@@ -10,70 +13,68 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Padding(
-        padding: EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _ChartBar(
-              label: 'Gryffindor',
-              amount: 10,
-              total: 0.1,
-              color: Colors.red,
-            ),
-            _ChartBar(
-              label: 'Hufflepuff',
-              amount: 20,
-              total: 0.2,
-              color: Colors.yellow,
-            ),
-            _ChartBar(
-              label: 'Ravenclaw',
-              amount: 10,
-              total: 0.1,
-              color: Colors.blue,
-            ),
-            _ChartBar(
-              label: 'Slytherin',
-              amount: 20,
-              total: 0.2,
-              color: Colors.green,
-            ),
-          ],
+        padding: const EdgeInsets.all(10),
+        child: BlocBuilder<HogwartsBranchBloc, HogwartsBranchState>(
+          builder: (context, state) {
+            return state.when(
+                loading: () =>
+                    const CircularProgressIndicator.adaptive(strokeWidth: 2),
+                loaded: (List<House> houses) {
+                  int total = houses.fold(0, (p, e) => p + e.points);
+                  var housesChart = houses.map((house) {
+                    return _HouseBar(
+                      branchId: 0,
+                      house: house,
+                      total: total,
+                    );
+                  }).toList();
+
+                  return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [...housesChart]);
+                },
+                initial: () => Container(),
+                error: () => Container());
+          },
         ),
       ),
     );
   }
 }
 
-class _ChartBar extends StatelessWidget {
-  final String label;
-  final int amount;
-  final double total;
-  final Color color;
+class _HouseBar extends StatelessWidget {
+  final int branchId;
+  final House house;
+  final int total;
 
-  const _ChartBar(
-      {Key? key,
-      required this.label,
-      required this.amount,
-      required this.total,
-      required this.color})
-      : super(key: key);
+  const _HouseBar({
+    Key? key,
+    required this.branchId,
+    required this.house,
+    required this.total,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(HousePage.routeName);
+        Navigator.of(context).pushNamed(
+          HousePage.routeName,
+          arguments: HouseArguments(
+            branchId: branchId,
+            house: house,
+          ),
+        );
       },
       child: SizedBox(
         width: 50,
         child: ChartBar(
-          label: label,
-          amount: amount,
+          label: house.name,
+          amount: house.points,
           total: total,
-          color: color,
+          color: house.color,
         ),
       ),
     );
