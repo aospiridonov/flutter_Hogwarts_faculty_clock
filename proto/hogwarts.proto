@@ -27,8 +27,6 @@ message Houses {
 //TODO: add staticstic for dumbledore
 
 message GetSchoolRequest {
-    int32 page_number = 1;
-    int32 result_per_page = 2;
 }
 
 service Hogwarts {

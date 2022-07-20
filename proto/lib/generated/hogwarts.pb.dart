@@ -251,25 +251,11 @@ class Houses extends $pb.GeneratedMessage {
 
 class GetSchoolRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSchoolRequest', createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pageNumber', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'resultPerPage', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   GetSchoolRequest._() : super();
-  factory GetSchoolRequest({
-    $core.int? pageNumber,
-    $core.int? resultPerPage,
-  }) {
-    final _result = create();
-    if (pageNumber != null) {
-      _result.pageNumber = pageNumber;
-    }
-    if (resultPerPage != null) {
-      _result.resultPerPage = resultPerPage;
-    }
-    return _result;
-  }
+  factory GetSchoolRequest() => create();
   factory GetSchoolRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetSchoolRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -290,23 +276,5 @@ class GetSchoolRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetSchoolRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetSchoolRequest>(create);
   static GetSchoolRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get pageNumber => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set pageNumber($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasPageNumber() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearPageNumber() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.int get resultPerPage => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set resultPerPage($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasResultPerPage() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearResultPerPage() => clearField(2);
 }
 

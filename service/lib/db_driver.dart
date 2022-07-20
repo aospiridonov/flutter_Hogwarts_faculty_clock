@@ -3,14 +3,14 @@ import 'dart:io';
 
 import 'package:proto/generated/hogwarts.pb.dart';
 
-final School schoolDb = readDb();
+School schoolDb = _readDb();
 
 dynamic _getSchool() {
   final jsonString = File('db/db.json').readAsStringSync();
   return jsonDecode(jsonString);
 }
 
-School readDb() {
+School _readDb() {
   final schoolMap = _getSchool();
 
   return School(

@@ -56,11 +56,7 @@ final $typed_data.Uint8List housesDescriptor = $convert.base64Decode('CgZIb3VzZX
 @$core.Deprecated('Use getSchoolRequestDescriptor instead')
 const GetSchoolRequest$json = const {
   '1': 'GetSchoolRequest',
-  '2': const [
-    const {'1': 'page_number', '3': 1, '4': 1, '5': 5, '10': 'pageNumber'},
-    const {'1': 'result_per_page', '3': 2, '4': 1, '5': 5, '10': 'resultPerPage'},
-  ],
 };
 
 /// Descriptor for `GetSchoolRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getSchoolRequestDescriptor = $convert.base64Decode('ChBHZXRTY2hvb2xSZXF1ZXN0Eh8KC3BhZ2VfbnVtYmVyGAEgASgFUgpwYWdlTnVtYmVyEiYKD3Jlc3VsdF9wZXJfcGFnZRgCIAEoBVINcmVzdWx0UGVyUGFnZQ==');
+final $typed_data.Uint8List getSchoolRequestDescriptor = $convert.base64Decode('ChBHZXRTY2hvb2xSZXF1ZXN0');
