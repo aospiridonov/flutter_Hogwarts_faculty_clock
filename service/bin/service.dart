@@ -1,5 +1,6 @@
+import 'package:service/db_driver.dart';
 import 'package:service/service.dart' as service;
 
-void main(List<String> arguments) {
-  print('Hello world: ${service.calculate()}!');
+Future<void> main(List<String> arguments) async {
+  //print(schoolDb);
 }

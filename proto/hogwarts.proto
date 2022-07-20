@@ -1,20 +1,21 @@
 syntax = "proto3";
 
 // base data
-message Branch {
-    int32 id = 1;
-    string name = 2;
-
-}
-
-message School {
-    int32 id = 1;
-    repeated Branch houses = 2;
-}
 
 message House {
     int32 id = 1;
     int32 points = 2;
+}
+
+message Branch {
+    int32 id = 1;
+    string name = 2;
+    repeated House houses = 3;
+}
+
+message School {
+    int32 id = 1;
+    repeated Branch branches = 2;
 }
 
 message Houses {
@@ -30,6 +31,6 @@ message GetSchoolRequest {
     int32 result_per_page = 2;
 }
 
-service hogwarts {
+service Hogwarts {
     rpc GetSchool(GetSchoolRequest) returns (School);
 }

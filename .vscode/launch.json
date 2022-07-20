@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "client_app",
+            "cwd": "client_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "client_app (profile mode)",
+            "cwd": "client_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "client_app (release mode)",
+            "cwd": "client_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "proto",
+            "cwd": "proto",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "service",
+            "cwd": "service",
+            "request": "launch",
+            "type": "dart",
+            "program": "bin/service.dart",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "service (release mode)",
+            "cwd": "service",
+            "request": "launch",
+            "type": "dart",
+            "program": "bin/service.dart",
+            "flutterMode": "release"
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "id": 0,
+    "branches": [
+        {
+            "id": 0,
+            "name": "Branch 1",
+            "houses": [
+                {
+                    "id": 0,
+                    "points": 10
+                },
+                {
+                    "id": 1,
+                    "points": 20
+                },
+                {
+                    "id": 2,
+                    "points": 30
+                },
+                {
+                    "id": 3,
+                    "points": 15
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Branch 2",
+            "houses": [
+                {
+                    "id": 0,
+                    "points": 25
+                },
+                {
+                    "id": 1,
+                    "points": 30
+                },
+                {
+                    "id": 2,
+                    "points": 10
+                },
+                {
+                    "id": 3,
+                    "points": 5
+                }
+            ]
+        }
+    ]
+}

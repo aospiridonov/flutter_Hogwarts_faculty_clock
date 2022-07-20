@@ -13,13 +13,13 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'hogwarts.pb.dart' as $0;
 export 'hogwarts.pb.dart';
 
-class hogwartsClient extends $grpc.Client {
+class HogwartsClient extends $grpc.Client {
   static final _$getSchool = $grpc.ClientMethod<$0.GetSchoolRequest, $0.School>(
-      '/hogwarts/GetSchool',
+      '/Hogwarts/GetSchool',
       ($0.GetSchoolRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.School.fromBuffer(value));
 
-  hogwartsClient($grpc.ClientChannel channel,
+  HogwartsClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
@@ -30,10 +30,10 @@ class hogwartsClient extends $grpc.Client {
   }
 }
 
-abstract class hogwartsServiceBase extends $grpc.Service {
-  $core.String get $name => 'hogwarts';
+abstract class HogwartsServiceBase extends $grpc.Service {
+  $core.String get $name => 'Hogwarts';
 
-  hogwartsServiceBase() {
+  HogwartsServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.GetSchoolRequest, $0.School>(
         'GetSchool',
         getSchool_Pre,
