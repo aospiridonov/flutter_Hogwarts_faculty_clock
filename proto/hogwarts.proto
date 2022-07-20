@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+// base data
+message Branch {
+    int32 id = 1;
+    string name = 2;
+
+}
+
+message School {
+    int32 id = 1;
+    repeated Branch houses = 2;
+}
+
+message House {
+    int32 id = 1;
+    int32 points = 2;
+}
+
+message Houses {
+    int32 branch_id = 1;
+    repeated House houses = 2;
+}
+
+// statistics
+//TODO: add staticstic for dumbledore
+
+message GetSchoolRequest {
+    int32 page_number = 1;
+    int32 result_per_page = 2;
+}
+
+service hogwarts {
+    rpc GetSchool(GetSchoolRequest) returns (School);
+}
