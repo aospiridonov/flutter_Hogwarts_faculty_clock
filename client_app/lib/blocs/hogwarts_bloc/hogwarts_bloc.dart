@@ -18,7 +18,7 @@ class HogwartsBloc extends Bloc<HogwartsEvent, HogwartsState> {
       emit(const HogwartsState.loading());
       //await Future.delayed(Duration(seconds: 1));
       try {
-        var hogwartsBranch = _repository.getBranch(event.id);
+        var hogwartsBranch = await _repository.getBranch(event.id);
         emit(HogwartsState.loaded(branch: hogwartsBranch));
       } catch (_) {
         emit(const HogwartsState.error());

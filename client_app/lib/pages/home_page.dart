@@ -1,3 +1,4 @@
+import 'package:client_app/repositories/repositories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,8 +14,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HogwartsBloc(DummyHogwartsRepository())
-        ..add(const HogwartsEvent.fetch(id: 0)),
+      create: (context) =>
+          HogwartsBloc(GrpcHogwartsRepository()) //DummyHogwartsRepository
+            ..add(const HogwartsEvent.fetch(id: 0)),
       child: const HomeView(),
     );
   }

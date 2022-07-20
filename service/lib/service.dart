@@ -6,6 +6,7 @@ import 'package:service/db_driver.dart';
 class HogwartsService extends HogwartsServiceBase {
   @override
   Future<School> getSchool(ServiceCall call, GetSchoolRequest request) async {
+    print('getSchool');
     return schoolDb; //schoolDb;
   }
 }

@@ -3,7 +3,7 @@ import 'package:client_app/repositories/hogwarts_repository.dart';
 
 class DummyHogwartsRepository implements HogwartsRepository {
   @override
-  HogwartsBranch getBranch(int id) {
+  Future<HogwartsBranch> getBranch(int id) async {
     return const HogwartsBranch(
       id: 0,
       name: 'Test',
