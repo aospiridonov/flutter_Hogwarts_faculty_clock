@@ -16,26 +16,34 @@ class HogwartsBranchBloc
 
   HogwartsBranchBloc(this._repository)
       : super(const HogwartsBranchState.initial()) {
-    on<HogwartsBranchEventFetch>(_onFetched);
     _branchSubscription = _repository.stream.listen(
       (houses) {
-        add(const HogwartsBranchEventFetch());
-        //emit(HogwartsBranchState.loaded(houses: houses));
+        add(HogwartsBranchEventFetched(houses));
       },
     );
+
+    on<HogwartsBranchEventFetched>(_onFetched);
+    on<HogwartsBranchEventGet>(_onGet);
   }
 
-  void _onFetched(
-    HogwartsBranchEventFetch event,
+  void _onGet(
+    HogwartsBranchEventGet event,
     Emitter<HogwartsBranchState> emit,
   ) async {
     emit(const HogwartsBranchState.loading());
+
     try {
-      final houses = await _repository.houses;
-      emit(HogwartsBranchState.loaded(houses: houses));
+      await _repository.fetch();
     } catch (_) {
       emit(const HogwartsBranchState.error());
     }
+  }
+
+  void _onFetched(
+    HogwartsBranchEventFetched event,
+    Emitter<HogwartsBranchState> emit,
+  ) async {
+    emit(HogwartsBranchState.loaded(houses: event.houses));
   }
 
   @override

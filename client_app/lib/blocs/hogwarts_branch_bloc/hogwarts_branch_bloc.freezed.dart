@@ -18,33 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HogwartsBranchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
+    required TResult Function() get,
+    required TResult Function(List<House> houses) fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? get,
+    TResult Function(List<House> houses)? fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? get,
+    TResult Function(List<House> houses)? fetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventFetch value) fetch,
+    required TResult Function(HogwartsBranchEventGet value) get,
+    required TResult Function(HogwartsBranchEventFetched value) fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventFetch value)? fetch,
+    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventFetched value)? fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventFetch value)? fetch,
+    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventFetched value)? fetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,40 +74,39 @@ class _$HogwartsBranchEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$HogwartsBranchEventFetchCopyWith<$Res> {
-  factory _$$HogwartsBranchEventFetchCopyWith(_$HogwartsBranchEventFetch value,
-          $Res Function(_$HogwartsBranchEventFetch) then) =
-      __$$HogwartsBranchEventFetchCopyWithImpl<$Res>;
+abstract class _$$HogwartsBranchEventGetCopyWith<$Res> {
+  factory _$$HogwartsBranchEventGetCopyWith(_$HogwartsBranchEventGet value,
+          $Res Function(_$HogwartsBranchEventGet) then) =
+      __$$HogwartsBranchEventGetCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HogwartsBranchEventFetchCopyWithImpl<$Res>
+class __$$HogwartsBranchEventGetCopyWithImpl<$Res>
     extends _$HogwartsBranchEventCopyWithImpl<$Res>
-    implements _$$HogwartsBranchEventFetchCopyWith<$Res> {
-  __$$HogwartsBranchEventFetchCopyWithImpl(_$HogwartsBranchEventFetch _value,
-      $Res Function(_$HogwartsBranchEventFetch) _then)
-      : super(_value, (v) => _then(v as _$HogwartsBranchEventFetch));
+    implements _$$HogwartsBranchEventGetCopyWith<$Res> {
+  __$$HogwartsBranchEventGetCopyWithImpl(_$HogwartsBranchEventGet _value,
+      $Res Function(_$HogwartsBranchEventGet) _then)
+      : super(_value, (v) => _then(v as _$HogwartsBranchEventGet));
 
   @override
-  _$HogwartsBranchEventFetch get _value =>
-      super._value as _$HogwartsBranchEventFetch;
+  _$HogwartsBranchEventGet get _value =>
+      super._value as _$HogwartsBranchEventGet;
 }
 
 /// @nodoc
 
-class _$HogwartsBranchEventFetch implements HogwartsBranchEventFetch {
-  const _$HogwartsBranchEventFetch();
+class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
+  const _$HogwartsBranchEventGet();
 
   @override
   String toString() {
-    return 'HogwartsBranchEvent.fetch()';
+    return 'HogwartsBranchEvent.get()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HogwartsBranchEventFetch);
+        (other.runtimeType == runtimeType && other is _$HogwartsBranchEventGet);
   }
 
   @override
@@ -110,27 +115,30 @@ class _$HogwartsBranchEventFetch implements HogwartsBranchEventFetch {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
+    required TResult Function() get,
+    required TResult Function(List<House> houses) fetched,
   }) {
-    return fetch();
+    return get();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? get,
+    TResult Function(List<House> houses)? fetched,
   }) {
-    return fetch?.call();
+    return get?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? get,
+    TResult Function(List<House> houses)? fetched,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch();
+    if (get != null) {
+      return get();
     }
     return orElse();
   }
@@ -138,34 +146,181 @@ class _$HogwartsBranchEventFetch implements HogwartsBranchEventFetch {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventFetch value) fetch,
+    required TResult Function(HogwartsBranchEventGet value) get,
+    required TResult Function(HogwartsBranchEventFetched value) fetched,
   }) {
-    return fetch(this);
+    return get(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventFetch value)? fetch,
+    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventFetched value)? fetched,
   }) {
-    return fetch?.call(this);
+    return get?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventFetch value)? fetch,
+    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventFetched value)? fetched,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch(this);
+    if (get != null) {
+      return get(this);
     }
     return orElse();
   }
 }
 
-abstract class HogwartsBranchEventFetch implements HogwartsBranchEvent {
-  const factory HogwartsBranchEventFetch() = _$HogwartsBranchEventFetch;
+abstract class HogwartsBranchEventGet implements HogwartsBranchEvent {
+  const factory HogwartsBranchEventGet() = _$HogwartsBranchEventGet;
+}
+
+/// @nodoc
+abstract class _$$HogwartsBranchEventFetchedCopyWith<$Res> {
+  factory _$$HogwartsBranchEventFetchedCopyWith(
+          _$HogwartsBranchEventFetched value,
+          $Res Function(_$HogwartsBranchEventFetched) then) =
+      __$$HogwartsBranchEventFetchedCopyWithImpl<$Res>;
+  $Res call({List<House> houses});
+}
+
+/// @nodoc
+class __$$HogwartsBranchEventFetchedCopyWithImpl<$Res>
+    extends _$HogwartsBranchEventCopyWithImpl<$Res>
+    implements _$$HogwartsBranchEventFetchedCopyWith<$Res> {
+  __$$HogwartsBranchEventFetchedCopyWithImpl(
+      _$HogwartsBranchEventFetched _value,
+      $Res Function(_$HogwartsBranchEventFetched) _then)
+      : super(_value, (v) => _then(v as _$HogwartsBranchEventFetched));
+
+  @override
+  _$HogwartsBranchEventFetched get _value =>
+      super._value as _$HogwartsBranchEventFetched;
+
+  @override
+  $Res call({
+    Object? houses = freezed,
+  }) {
+    return _then(_$HogwartsBranchEventFetched(
+      houses == freezed
+          ? _value._houses
+          : houses // ignore: cast_nullable_to_non_nullable
+              as List<House>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
+  const _$HogwartsBranchEventFetched(final List<House> houses)
+      : _houses = houses;
+
+  final List<House> _houses;
+  @override
+  List<House> get houses {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_houses);
+  }
+
+  @override
+  String toString() {
+    return 'HogwartsBranchEvent.fetched(houses: $houses)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HogwartsBranchEventFetched &&
+            const DeepCollectionEquality().equals(other._houses, _houses));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_houses));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$HogwartsBranchEventFetchedCopyWith<_$HogwartsBranchEventFetched>
+      get copyWith => __$$HogwartsBranchEventFetchedCopyWithImpl<
+          _$HogwartsBranchEventFetched>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() get,
+    required TResult Function(List<House> houses) fetched,
+  }) {
+    return fetched(houses);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? get,
+    TResult Function(List<House> houses)? fetched,
+  }) {
+    return fetched?.call(houses);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? get,
+    TResult Function(List<House> houses)? fetched,
+    required TResult orElse(),
+  }) {
+    if (fetched != null) {
+      return fetched(houses);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HogwartsBranchEventGet value) get,
+    required TResult Function(HogwartsBranchEventFetched value) fetched,
+  }) {
+    return fetched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventFetched value)? fetched,
+  }) {
+    return fetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventFetched value)? fetched,
+    required TResult orElse(),
+  }) {
+    if (fetched != null) {
+      return fetched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HogwartsBranchEventFetched implements HogwartsBranchEvent {
+  const factory HogwartsBranchEventFetched(final List<House> houses) =
+      _$HogwartsBranchEventFetched;
+
+  List<House> get houses;
+  @JsonKey(ignore: true)
+  _$$HogwartsBranchEventFetchedCopyWith<_$HogwartsBranchEventFetched>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

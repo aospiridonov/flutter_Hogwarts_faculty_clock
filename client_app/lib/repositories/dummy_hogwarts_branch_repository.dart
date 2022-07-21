@@ -24,4 +24,10 @@ class DummyHogwartsBranchRepository implements HogwartsBranchRepository {
 
   @override
   Stream<Houses> get stream => _storage.stream;
+
+  @override
+  Future<void> fetch() {
+    // TODO: implement get
+    throw UnimplementedError();
+  }
 }

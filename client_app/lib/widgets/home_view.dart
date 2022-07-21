@@ -1,4 +1,4 @@
-import 'package:client_app/repositories/dummy_hogwarts_branch_repository.dart';
+import 'package:client_app/repositories/grpc_hogwarts_branch_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,9 +22,9 @@ class HomeView extends StatelessWidget {
           color: Colors.grey[100],
           child: BlocProvider(
             create: (context) => HogwartsBranchBloc(
-              DummyHogwartsBranchRepository(0),
+              GrpcHogwartsBranchRepository(0),
             )..add(
-                const HogwartsBranchEvent.fetch(),
+                const HogwartsBranchEvent.get(),
               ),
             child: const Chart(),
           ),

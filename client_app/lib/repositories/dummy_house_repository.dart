@@ -53,4 +53,14 @@ class DummyHouseRepository implements HouseRepository {
     );
     return house.points;
   }
+
+  @override
+  // TODO: implement stream
+  Stream<List<int>> get stream => throw UnimplementedError();
+  
+  @override
+  Future<void> fetch() {
+    // TODO: implement fetch
+    throw UnimplementedError();
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:client_app/cubits/cubits.dart';
 import 'package:client_app/data/models/models.dart';
 import 'package:client_app/repositories/dummy_house_repository.dart';
+import 'package:client_app/repositories/grps_house_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:client_app/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +24,7 @@ class HousePage extends StatelessWidget {
           padding: const EdgeInsets.all(50),
           child: BlocProvider(
             create: (context) => HouseCubit(
-              DummyHouseRepository(
+              GrpcHouseRepository(
                 branchId: args.branchId,
                 houseId: house.id,
               ),

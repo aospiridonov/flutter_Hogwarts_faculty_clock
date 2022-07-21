@@ -60,3 +60,25 @@ const GetSchoolRequest$json = const {
 
 /// Descriptor for `GetSchoolRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSchoolRequestDescriptor = $convert.base64Decode('ChBHZXRTY2hvb2xSZXF1ZXN0');
+@$core.Deprecated('Use getHouesRequestDescriptor instead')
+const GetHouesRequest$json = const {
+  '1': 'GetHouesRequest',
+  '2': const [
+    const {'1': 'branch_id', '3': 1, '4': 1, '5': 5, '10': 'branchId'},
+  ],
+};
+
+/// Descriptor for `GetHouesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getHouesRequestDescriptor = $convert.base64Decode('Cg9HZXRIb3Vlc1JlcXVlc3QSGwoJYnJhbmNoX2lkGAEgASgFUghicmFuY2hJZA==');
+@$core.Deprecated('Use updateHousePointsRequestDescriptor instead')
+const UpdateHousePointsRequest$json = const {
+  '1': 'UpdateHousePointsRequest',
+  '2': const [
+    const {'1': 'branch_id', '3': 1, '4': 1, '5': 5, '10': 'branchId'},
+    const {'1': 'house_id', '3': 2, '4': 1, '5': 5, '10': 'houseId'},
+    const {'1': 'points', '3': 3, '4': 1, '5': 5, '10': 'points'},
+  ],
+};
+
+/// Descriptor for `UpdateHousePointsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateHousePointsRequestDescriptor = $convert.base64Decode('ChhVcGRhdGVIb3VzZVBvaW50c1JlcXVlc3QSGwoJYnJhbmNoX2lkGAEgASgFUghicmFuY2hJZBIZCghob3VzZV9pZBgCIAEoBVIHaG91c2VJZBIWCgZwb2ludHMYAyABKAVSBnBvaW50cw==');

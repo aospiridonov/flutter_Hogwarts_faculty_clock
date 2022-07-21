@@ -9,4 +9,10 @@ class DummyHogwartsRepository implements HogwartsRepository {
       name: 'Test',
     );
   }
+
+  @override
+  Stream<Houses> getHouses(int branchId) {
+    // TODO: implement getHouses
+    throw UnimplementedError();
+  }
 }

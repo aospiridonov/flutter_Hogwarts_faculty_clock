@@ -26,9 +26,24 @@ message Houses {
 // statistics
 //TODO: add staticstic for dumbledore
 
+
+//TODO: // requests
 message GetSchoolRequest {
+}
+
+message GetHouesRequest {
+    int32 branch_id = 1;
+}
+
+message UpdateHousePointsRequest{
+    int32 branch_id = 1;
+    int32 house_id = 2;
+    int32 points = 3;
 }
 
 service Hogwarts {
     rpc GetSchool(GetSchoolRequest) returns (School);
+    rpc GetHouses(stream GetHouesRequest) returns (stream Houses);
+    rpc UpdatePoints(UpdateHousePointsRequest) returns (House);
+
 }
