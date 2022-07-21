@@ -6,4 +6,6 @@ abstract class HouseRepository {
 
   Stream<List<int>> get stream;
   Future<void> fetch();
+
+  Future<void> close();
 }

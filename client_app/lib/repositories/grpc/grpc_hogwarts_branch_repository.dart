@@ -52,5 +52,8 @@ class GrpcHogwartsBranchRepository implements HogwartsBranchRepository {
     _service.fetchBranch(branchId);
   }
 
-  //TODO: add dispose
+  @override
+  Future<void> close() async {
+    _service.dispose();
+  }
 }

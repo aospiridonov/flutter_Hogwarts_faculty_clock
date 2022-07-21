@@ -6,4 +6,6 @@ abstract class HogwartsBranchRepository {
   Future<House> getHouse({required int houseId});
 
   Future<void> fetch();
+
+  Future<void> close();
 }

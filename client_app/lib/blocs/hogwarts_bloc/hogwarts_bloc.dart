@@ -25,4 +25,9 @@ class HogwartsBloc extends Bloc<HogwartsEvent, HogwartsState> {
       }
     });
   }
+
+  @override
+  Future<void> close() {
+    return super.close();
+  }
 }

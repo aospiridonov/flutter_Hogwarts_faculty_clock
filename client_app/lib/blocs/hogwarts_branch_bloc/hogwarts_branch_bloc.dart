@@ -49,6 +49,7 @@ class HogwartsBranchBloc
   @override
   Future<void> close() {
     _branchSubscription.cancel();
+    _repository.close();
     return super.close();
   }
 }

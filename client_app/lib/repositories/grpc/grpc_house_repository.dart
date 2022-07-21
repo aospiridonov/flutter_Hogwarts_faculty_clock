@@ -106,4 +106,10 @@ class GrpcHouseRepository implements HouseRepository {
   Future<void> fetch() async {
     _service.fetchBranch(branchId);
   }
+
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    throw UnimplementedError();
+  }
 }
