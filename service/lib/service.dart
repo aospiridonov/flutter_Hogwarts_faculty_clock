@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:grpc/grpc.dart' as grpc;
 import 'package:grpc/service_api.dart';
 import 'package:proto/generated/hogwarts.pbgrpc.dart';
 import 'package:service/db_driver.dart';
+import 'package:async/async.dart' show StreamGroup;
 
 Houses _getHouses(int branchId) {
   final houses = schoolDb.branches
@@ -15,6 +18,30 @@ Houses _getHouses(int branchId) {
 }
 
 class HogwartsService extends HogwartsServiceBase {
+  late final StreamController<GetHouesRequest> _controllerRequestHouses;
+  late final StreamController<Houses> _controllerResponseHouses;
+  late final StreamSubscription<GetHouesRequest> _subscriptionRequestHouses;
+  late final StreamGroup<GetHouesRequest> _streamGroup;
+
+  HogwartsService() {
+    _controllerRequestHouses = StreamController<GetHouesRequest>.broadcast();
+    _controllerResponseHouses = StreamController<Houses>.broadcast();
+/*
+    _controllerResponseHouses
+        .addStream(stub.getHouses(_controllerRequestHouses.stream));
+*/
+    //_controllerRequestHouses.addStream(_controllerResponseHouses.stream);
+
+    _streamGroup = StreamGroup<GetHouesRequest>();
+    _subscriptionRequestHouses = _streamGroup.stream.listen(
+      (message) => _controllerResponseHouses.add(
+        _getHouses(
+          message.branchId,
+        ),
+      ),
+    );
+  }
+
   @override
   Future<School> getSchool(ServiceCall call, GetSchoolRequest request) async {
     print('getSchool');
@@ -49,10 +76,15 @@ class HogwartsService extends HogwartsServiceBase {
   Stream<Houses> getHouses(
     grpc.ServiceCall call,
     Stream<GetHouesRequest> request,
-  ) async* {
-    await for (var message in request) {
-      yield _getHouses(message.branchId);
-    }
+  ) {
+    _streamGroup.add(request);
+    //_controllerRequestHouses.addStream(request);
+    //for (var message in request) {
+    //  yield _getHouses(message.branchId);
+    //}
+
+    //_controllerResponseHouses.add(_getHouses(request.last))
+    return _controllerResponseHouses.stream;
   }
 }
 
