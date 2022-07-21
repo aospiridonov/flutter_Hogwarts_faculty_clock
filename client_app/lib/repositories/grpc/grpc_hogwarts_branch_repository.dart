@@ -4,7 +4,7 @@ import 'package:client_app/data/models/models.dart';
 import 'package:client_app/services/grpc_hogwarts_service.dart';
 import 'package:proto/generated/hogwarts.pb.dart' as proto;
 
-import 'repositories.dart';
+import 'package:client_app/repositories/repositories.dart';
 import 'package:client_app/constants/house_constants.dart' as constants;
 
 class GrpcHogwartsBranchRepository implements HogwartsBranchRepository {

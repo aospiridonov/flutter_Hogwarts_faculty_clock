@@ -1,4 +1,4 @@
-import 'package:client_app/repositories/grpc_hogwarts_branch_repository.dart';
+import 'package:client_app/repositories/repositories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:client_app/blocs/blocs.dart';
-import 'package:client_app/repositories/dummy_hogwarts_repository.dart';
 import 'package:client_app/widgets/home_view.dart';
 
 class HomePage extends StatelessWidget {

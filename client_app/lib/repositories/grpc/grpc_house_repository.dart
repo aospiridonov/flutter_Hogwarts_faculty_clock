@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:client_app/services/grpc_hogwarts_service.dart';
 import 'package:proto/generated/hogwarts.pb.dart' as proto;
 
-import 'house_repository.dart';
+import 'package:client_app/repositories/repositories.dart';
 
 class GrpcHouseRepository implements HouseRepository {
   late final GrpcHogwartsService _service;
