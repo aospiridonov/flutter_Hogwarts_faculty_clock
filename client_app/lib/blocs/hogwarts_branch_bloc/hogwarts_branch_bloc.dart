@@ -16,11 +16,9 @@ class HogwartsBranchBloc
 
   HogwartsBranchBloc(this._repository)
       : super(const HogwartsBranchState.initial()) {
-    _branchSubscription = _repository.stream.listen(
-      (houses) {
-        add(HogwartsBranchEventFetched(houses));
-      },
-    );
+    _branchSubscription = _repository.stream.listen((houses) {
+      add(HogwartsBranchEventFetched(houses));
+    });
 
     on<HogwartsBranchEventFetched>(_onFetched);
     on<HogwartsBranchEventGet>(_onGet);
@@ -49,7 +47,7 @@ class HogwartsBranchBloc
   @override
   Future<void> close() {
     _branchSubscription.cancel();
-    _repository.close();
+    _repository.dispose();
     return super.close();
   }
 }

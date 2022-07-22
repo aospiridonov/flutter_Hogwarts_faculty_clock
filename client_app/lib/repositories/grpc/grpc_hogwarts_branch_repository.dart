@@ -10,7 +10,6 @@ import 'package:client_app/constants/house_constants.dart' as constants;
 class GrpcHogwartsBranchRepository implements HogwartsBranchRepository {
   final int branchId;
   late final GrpcHogwartsService _service;
-
   late final Stream<proto.Houses> _stream;
 
   GrpcHogwartsBranchRepository(this.branchId) {
@@ -19,19 +18,8 @@ class GrpcHogwartsBranchRepository implements HogwartsBranchRepository {
   }
 
   @override
-  Future<House> getHouse({required int houseId}) {
-    // TODO: implement getHouse
-    throw UnimplementedError();
-  }
-
-  @override
-  // TODO: implement houses
-  Future<Houses> get houses => throw UnimplementedError();
-
-  @override
   Stream<Houses> get stream async* {
     await for (var protoHouses in _stream) {
-      print(protoHouses.branchId);
       yield protoHouses.houses.map((protoHouse) {
         final houseId = protoHouse.id;
         final points = protoHouse.points;
@@ -53,7 +41,7 @@ class GrpcHogwartsBranchRepository implements HogwartsBranchRepository {
   }
 
   @override
-  Future<void> close() async {
+  Future<void> dispose() async {
     _service.dispose();
   }
 }

@@ -18,15 +18,19 @@ class HogwartsClient extends $grpc.Client {
       '/Hogwarts/GetSchool',
       ($0.GetSchoolRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.School.fromBuffer(value));
-  static final _$getHouses = $grpc.ClientMethod<$0.GetHouesRequest, $0.Houses>(
-      '/Hogwarts/GetHouses',
-      ($0.GetHouesRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.Houses.fromBuffer(value));
   static final _$updatePoints =
-      $grpc.ClientMethod<$0.UpdateHousePointsRequest, $0.House>(
+      $grpc.ClientMethod<$0.UpdateHousePointsRequest, $0.Empty>(
           '/Hogwarts/UpdatePoints',
           ($0.UpdateHousePointsRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.House.fromBuffer(value));
+          ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+  static final _$fetchHouses = $grpc.ClientMethod<$0.BranchID, $0.Empty>(
+      '/Hogwarts/FetchHouses',
+      ($0.BranchID value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+  static final _$streamHouses = $grpc.ClientMethod<$0.BranchID, $0.Houses>(
+      '/Hogwarts/StreamHouses',
+      ($0.BranchID value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Houses.fromBuffer(value));
 
   HogwartsClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -38,16 +42,23 @@ class HogwartsClient extends $grpc.Client {
     return $createUnaryCall(_$getSchool, request, options: options);
   }
 
-  $grpc.ResponseStream<$0.Houses> getHouses(
-      $async.Stream<$0.GetHouesRequest> request,
-      {$grpc.CallOptions? options}) {
-    return $createStreamingCall(_$getHouses, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$0.House> updatePoints(
+  $grpc.ResponseFuture<$0.Empty> updatePoints(
       $0.UpdateHousePointsRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$updatePoints, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty> fetchHouses($async.Stream<$0.BranchID> request,
+      {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$fetchHouses, request, options: options)
+        .single;
+  }
+
+  $grpc.ResponseStream<$0.Houses> streamHouses($0.BranchID request,
+      {$grpc.CallOptions? options}) {
+    return $createStreamingCall(
+        _$streamHouses, $async.Stream.fromIterable([request]),
+        options: options);
   }
 }
 
@@ -62,21 +73,28 @@ abstract class HogwartsServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.GetSchoolRequest.fromBuffer(value),
         ($0.School value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetHouesRequest, $0.Houses>(
-        'GetHouses',
-        getHouses,
-        true,
-        true,
-        ($core.List<$core.int> value) => $0.GetHouesRequest.fromBuffer(value),
-        ($0.Houses value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateHousePointsRequest, $0.House>(
+    $addMethod($grpc.ServiceMethod<$0.UpdateHousePointsRequest, $0.Empty>(
         'UpdatePoints',
         updatePoints_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
             $0.UpdateHousePointsRequest.fromBuffer(value),
-        ($0.House value) => value.writeToBuffer()));
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.BranchID, $0.Empty>(
+        'FetchHouses',
+        fetchHouses,
+        true,
+        false,
+        ($core.List<$core.int> value) => $0.BranchID.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.BranchID, $0.Houses>(
+        'StreamHouses',
+        streamHouses_Pre,
+        false,
+        true,
+        ($core.List<$core.int> value) => $0.BranchID.fromBuffer(value),
+        ($0.Houses value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.School> getSchool_Pre($grpc.ServiceCall call,
@@ -84,15 +102,22 @@ abstract class HogwartsServiceBase extends $grpc.Service {
     return getSchool(call, await request);
   }
 
-  $async.Future<$0.House> updatePoints_Pre($grpc.ServiceCall call,
+  $async.Future<$0.Empty> updatePoints_Pre($grpc.ServiceCall call,
       $async.Future<$0.UpdateHousePointsRequest> request) async {
     return updatePoints(call, await request);
   }
 
+  $async.Stream<$0.Houses> streamHouses_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.BranchID> request) async* {
+    yield* streamHouses(call, await request);
+  }
+
   $async.Future<$0.School> getSchool(
       $grpc.ServiceCall call, $0.GetSchoolRequest request);
-  $async.Stream<$0.Houses> getHouses(
-      $grpc.ServiceCall call, $async.Stream<$0.GetHouesRequest> request);
-  $async.Future<$0.House> updatePoints(
+  $async.Future<$0.Empty> updatePoints(
       $grpc.ServiceCall call, $0.UpdateHousePointsRequest request);
+  $async.Future<$0.Empty> fetchHouses(
+      $grpc.ServiceCall call, $async.Stream<$0.BranchID> request);
+  $async.Stream<$0.Houses> streamHouses(
+      $grpc.ServiceCall call, $0.BranchID request);
 }

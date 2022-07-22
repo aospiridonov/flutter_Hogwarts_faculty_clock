@@ -11,7 +11,7 @@ class GrpcHogwartsService implements HogwartsService {
   late final HogwartsClient stub;
   late final ClientChannel channel;
 
-  late final StreamController<proto.GetHouesRequest> _controllerRequestHouses;
+  late final StreamController<proto.BranchID> _controllerRequestHouses;
   late final StreamController<proto.Houses> _controllerResponseHouses;
 
   static GrpcHogwartsService instance = GrpcHogwartsService._();
@@ -31,22 +31,17 @@ class GrpcHogwartsService implements HogwartsService {
 
     stub = HogwartsClient(channel);
 
-    _controllerRequestHouses =
-        StreamController<proto.GetHouesRequest>.broadcast();
     _controllerResponseHouses = StreamController<proto.Houses>.broadcast();
-
-    _controllerResponseHouses
-        .addStream(stub.getHouses(_controllerRequestHouses.stream));
+    _controllerResponseHouses.addStream(stub.streamHouses(proto.BranchID()));
+    _controllerRequestHouses = StreamController<proto.BranchID>.broadcast();
+    stub.fetchHouses(_controllerRequestHouses.stream);
   }
 
   Stream<Houses> get houses => _controllerResponseHouses.stream;
+  //Stream<Houses> get houses => stub.streamHouses(proto.BranchID());
 
-  Future<void> fetchBranch(int branchId) async {
-    _controllerRequestHouses.add(
-      proto.GetHouesRequest(
-        branchId: branchId,
-      ),
-    );
+  void fetchBranch(int branchId) {
+    _controllerRequestHouses.add(proto.BranchID(id: branchId));
   }
 
   Future<School> getSchool() async {
@@ -63,16 +58,12 @@ class GrpcHogwartsService implements HogwartsService {
         points: points,
       ),
     );
-    _controllerRequestHouses.add(
-      proto.GetHouesRequest(branchId: branchId),
-    );
+    _controllerRequestHouses.add(proto.BranchID(id: branchId));
   }
 
-  //TODO: add dispose
-
   Future<void> dispose() async {
-    await channel.shutdown();
     await _controllerRequestHouses.close();
     await _controllerResponseHouses.close();
+    await channel.shutdown();
   }
 }

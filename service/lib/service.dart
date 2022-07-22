@@ -13,43 +13,25 @@ Houses _getHouses(int branchId) {
         orElse: () => Branch(id: -1),
       )
       .houses;
-  print(houses);
+  //print(houses);
   return Houses(branchId: branchId, houses: houses);
 }
 
 class HogwartsService extends HogwartsServiceBase {
-  late final StreamController<GetHouesRequest> _controllerRequestHouses;
   late final StreamController<Houses> _controllerResponseHouses;
-  late final StreamSubscription<GetHouesRequest> _subscriptionRequestHouses;
-  late final StreamGroup<GetHouesRequest> _streamGroup;
 
   HogwartsService() {
-    _controllerRequestHouses = StreamController<GetHouesRequest>.broadcast();
     _controllerResponseHouses = StreamController<Houses>.broadcast();
-/*
-    _controllerResponseHouses
-        .addStream(stub.getHouses(_controllerRequestHouses.stream));
-*/
-    //_controllerRequestHouses.addStream(_controllerResponseHouses.stream);
-
-    _streamGroup = StreamGroup<GetHouesRequest>();
-    _subscriptionRequestHouses = _streamGroup.stream.listen(
-      (message) => _controllerResponseHouses.add(
-        _getHouses(
-          message.branchId,
-        ),
-      ),
-    );
   }
 
   @override
   Future<School> getSchool(ServiceCall call, GetSchoolRequest request) async {
     print('getSchool');
-    return schoolDb; //schoolDb;
+    return schoolDb;
   }
 
   @override
-  Future<House> updatePoints(
+  Future<Empty> updatePoints(
       grpc.ServiceCall call, UpdateHousePointsRequest request) async {
     final branchId = request.branchId;
     final houseId = request.houseId;
@@ -69,29 +51,32 @@ class HogwartsService extends HogwartsServiceBase {
       house.points = 0;
     }
 
-    return house;
+    return Empty();
   }
 
   @override
-  Stream<Houses> getHouses(
-    grpc.ServiceCall call,
-    Stream<GetHouesRequest> request,
-  ) {
-    _streamGroup.add(request);
-    //_controllerRequestHouses.addStream(request);
-    //for (var message in request) {
-    //  yield _getHouses(message.branchId);
-    //}
+  Future<Empty> fetchHouses(
+      grpc.ServiceCall call, Stream<BranchID> request) async {
+    print('fetchHouses');
+    await for (var branch in request) {
+      print('fetchHouses ${branch.id}');
+      _controllerResponseHouses.add(
+        _getHouses(branch.id),
+      );
+    }
+    print('end fetchHouses');
+    return Empty();
+  }
 
-    //_controllerResponseHouses.add(_getHouses(request.last))
+  @override
+  Stream<Houses> streamHouses(grpc.ServiceCall call, BranchID request) {
+    print('streamHouses');
     return _controllerResponseHouses.stream;
   }
 }
 
 class Server {
   Future<void> run() async {
-    print(schoolDb);
-    // add grpc connection
     final server = grpc.Server([HogwartsService()]);
     await server.serve(port: 5555);
     print('Serving on the port: ${server.port}');

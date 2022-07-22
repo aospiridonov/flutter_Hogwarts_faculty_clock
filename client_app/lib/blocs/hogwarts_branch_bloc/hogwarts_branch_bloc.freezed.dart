@@ -18,38 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HogwartsBranchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() get,
+    required TResult Function() fetch,
     required TResult Function(List<House> houses) fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? get,
+    TResult Function()? fetch,
     TResult Function(List<House> houses)? fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? get,
+    TResult Function()? fetch,
     TResult Function(List<House> houses)? fetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventGet value) get,
+    required TResult Function(HogwartsBranchEventGet value) fetch,
     required TResult Function(HogwartsBranchEventFetched value) fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventGet value)? fetch,
     TResult Function(HogwartsBranchEventFetched value)? fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventGet value)? fetch,
     TResult Function(HogwartsBranchEventFetched value)? fetched,
     required TResult orElse(),
   }) =>
@@ -100,7 +100,7 @@ class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
 
   @override
   String toString() {
-    return 'HogwartsBranchEvent.get()';
+    return 'HogwartsBranchEvent.fetch()';
   }
 
   @override
@@ -115,30 +115,30 @@ class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() get,
+    required TResult Function() fetch,
     required TResult Function(List<House> houses) fetched,
   }) {
-    return get();
+    return fetch();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? get,
+    TResult Function()? fetch,
     TResult Function(List<House> houses)? fetched,
   }) {
-    return get?.call();
+    return fetch?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? get,
+    TResult Function()? fetch,
     TResult Function(List<House> houses)? fetched,
     required TResult orElse(),
   }) {
-    if (get != null) {
-      return get();
+    if (fetch != null) {
+      return fetch();
     }
     return orElse();
   }
@@ -146,30 +146,30 @@ class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventGet value) get,
+    required TResult Function(HogwartsBranchEventGet value) fetch,
     required TResult Function(HogwartsBranchEventFetched value) fetched,
   }) {
-    return get(this);
+    return fetch(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventGet value)? fetch,
     TResult Function(HogwartsBranchEventFetched value)? fetched,
   }) {
-    return get?.call(this);
+    return fetch?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventGet value)? fetch,
     TResult Function(HogwartsBranchEventFetched value)? fetched,
     required TResult orElse(),
   }) {
-    if (get != null) {
-      return get(this);
+    if (fetch != null) {
+      return fetch(this);
     }
     return orElse();
   }
@@ -253,7 +253,7 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() get,
+    required TResult Function() fetch,
     required TResult Function(List<House> houses) fetched,
   }) {
     return fetched(houses);
@@ -262,7 +262,7 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? get,
+    TResult Function()? fetch,
     TResult Function(List<House> houses)? fetched,
   }) {
     return fetched?.call(houses);
@@ -271,7 +271,7 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? get,
+    TResult Function()? fetch,
     TResult Function(List<House> houses)? fetched,
     required TResult orElse(),
   }) {
@@ -284,7 +284,7 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventGet value) get,
+    required TResult Function(HogwartsBranchEventGet value) fetch,
     required TResult Function(HogwartsBranchEventFetched value) fetched,
   }) {
     return fetched(this);
@@ -293,7 +293,7 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventGet value)? fetch,
     TResult Function(HogwartsBranchEventFetched value)? fetched,
   }) {
     return fetched?.call(this);
@@ -302,7 +302,7 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? get,
+    TResult Function(HogwartsBranchEventGet value)? fetch,
     TResult Function(HogwartsBranchEventFetched value)? fetched,
     required TResult orElse(),
   }) {

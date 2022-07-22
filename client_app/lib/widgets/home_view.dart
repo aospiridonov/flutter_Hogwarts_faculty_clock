@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
             create: (context) => HogwartsBranchBloc(
               GrpcHogwartsBranchRepository(0),
             )..add(
-                const HogwartsBranchEvent.get(),
+                const HogwartsBranchEvent.fetch(),
               ),
             child: const Chart(),
           ),

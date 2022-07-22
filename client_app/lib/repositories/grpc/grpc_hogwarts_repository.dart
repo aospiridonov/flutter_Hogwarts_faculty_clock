@@ -19,7 +19,7 @@ class GrpcHogwartsRepository implements HogwartsRepository {
   }
 
   @override
-  Future<void> close() async {
+  Future<void> dispose() async {
     _service.dispose();
   }
 }

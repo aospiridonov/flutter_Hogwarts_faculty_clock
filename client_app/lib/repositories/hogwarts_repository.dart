@@ -5,5 +5,5 @@ abstract class HogwartsRepository {
   Future<HogwartsBranch> getBranch(int id);
   //Stream<Houses> getHouses(int branchId);
 
-  Future<void> close();
+  Future<void> dispose();
 }

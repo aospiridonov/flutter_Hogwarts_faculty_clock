@@ -9,6 +9,186 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class GetSchoolRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSchoolRequest', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  GetSchoolRequest._() : super();
+  factory GetSchoolRequest() => create();
+  factory GetSchoolRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetSchoolRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetSchoolRequest clone() => GetSchoolRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetSchoolRequest copyWith(void Function(GetSchoolRequest) updates) => super.copyWith((message) => updates(message as GetSchoolRequest)) as GetSchoolRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetSchoolRequest create() => GetSchoolRequest._();
+  GetSchoolRequest createEmptyInstance() => create();
+  static $pb.PbList<GetSchoolRequest> createRepeated() => $pb.PbList<GetSchoolRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetSchoolRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetSchoolRequest>(create);
+  static GetSchoolRequest? _defaultInstance;
+}
+
+class BranchID extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'BranchID', createEmptyInstance: create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  BranchID._() : super();
+  factory BranchID({
+    $core.int? id,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    return _result;
+  }
+  factory BranchID.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BranchID.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BranchID clone() => BranchID()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BranchID copyWith(void Function(BranchID) updates) => super.copyWith((message) => updates(message as BranchID)) as BranchID; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static BranchID create() => BranchID._();
+  BranchID createEmptyInstance() => create();
+  static $pb.PbList<BranchID> createRepeated() => $pb.PbList<BranchID>();
+  @$core.pragma('dart2js:noInline')
+  static BranchID getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BranchID>(create);
+  static BranchID? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get id => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set id($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+class UpdateHousePointsRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateHousePointsRequest', createEmptyInstance: create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'branchId', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'houseId', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'points', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  UpdateHousePointsRequest._() : super();
+  factory UpdateHousePointsRequest({
+    $core.int? branchId,
+    $core.int? houseId,
+    $core.int? points,
+  }) {
+    final _result = create();
+    if (branchId != null) {
+      _result.branchId = branchId;
+    }
+    if (houseId != null) {
+      _result.houseId = houseId;
+    }
+    if (points != null) {
+      _result.points = points;
+    }
+    return _result;
+  }
+  factory UpdateHousePointsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateHousePointsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateHousePointsRequest clone() => UpdateHousePointsRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateHousePointsRequest copyWith(void Function(UpdateHousePointsRequest) updates) => super.copyWith((message) => updates(message as UpdateHousePointsRequest)) as UpdateHousePointsRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UpdateHousePointsRequest create() => UpdateHousePointsRequest._();
+  UpdateHousePointsRequest createEmptyInstance() => create();
+  static $pb.PbList<UpdateHousePointsRequest> createRepeated() => $pb.PbList<UpdateHousePointsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateHousePointsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateHousePointsRequest>(create);
+  static UpdateHousePointsRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get branchId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set branchId($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasBranchId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBranchId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get houseId => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set houseId($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasHouseId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearHouseId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get points => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set points($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPoints() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPoints() => clearField(3);
+}
+
+class Empty extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Empty', createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  Empty._() : super();
+  factory Empty() => create();
+  factory Empty.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Empty.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Empty clone() => Empty()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Empty copyWith(void Function(Empty) updates) => super.copyWith((message) => updates(message as Empty)) as Empty; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Empty create() => Empty._();
+  Empty createEmptyInstance() => create();
+  static $pb.PbList<Empty> createRepeated() => $pb.PbList<Empty>();
+  @$core.pragma('dart2js:noInline')
+  static Empty getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Empty>(create);
+  static Empty? _defaultInstance;
+}
+
 class House extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'House', createEmptyInstance: create)
     ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', $pb.PbFieldType.O3)
@@ -247,156 +427,5 @@ class Houses extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.List<House> get houses => $_getList(1);
-}
-
-class GetSchoolRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSchoolRequest', createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  GetSchoolRequest._() : super();
-  factory GetSchoolRequest() => create();
-  factory GetSchoolRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetSchoolRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetSchoolRequest clone() => GetSchoolRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetSchoolRequest copyWith(void Function(GetSchoolRequest) updates) => super.copyWith((message) => updates(message as GetSchoolRequest)) as GetSchoolRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GetSchoolRequest create() => GetSchoolRequest._();
-  GetSchoolRequest createEmptyInstance() => create();
-  static $pb.PbList<GetSchoolRequest> createRepeated() => $pb.PbList<GetSchoolRequest>();
-  @$core.pragma('dart2js:noInline')
-  static GetSchoolRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetSchoolRequest>(create);
-  static GetSchoolRequest? _defaultInstance;
-}
-
-class GetHouesRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetHouesRequest', createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'branchId', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  GetHouesRequest._() : super();
-  factory GetHouesRequest({
-    $core.int? branchId,
-  }) {
-    final _result = create();
-    if (branchId != null) {
-      _result.branchId = branchId;
-    }
-    return _result;
-  }
-  factory GetHouesRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetHouesRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetHouesRequest clone() => GetHouesRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetHouesRequest copyWith(void Function(GetHouesRequest) updates) => super.copyWith((message) => updates(message as GetHouesRequest)) as GetHouesRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GetHouesRequest create() => GetHouesRequest._();
-  GetHouesRequest createEmptyInstance() => create();
-  static $pb.PbList<GetHouesRequest> createRepeated() => $pb.PbList<GetHouesRequest>();
-  @$core.pragma('dart2js:noInline')
-  static GetHouesRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetHouesRequest>(create);
-  static GetHouesRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get branchId => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set branchId($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasBranchId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearBranchId() => clearField(1);
-}
-
-class UpdateHousePointsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateHousePointsRequest', createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'branchId', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'houseId', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'points', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  UpdateHousePointsRequest._() : super();
-  factory UpdateHousePointsRequest({
-    $core.int? branchId,
-    $core.int? houseId,
-    $core.int? points,
-  }) {
-    final _result = create();
-    if (branchId != null) {
-      _result.branchId = branchId;
-    }
-    if (houseId != null) {
-      _result.houseId = houseId;
-    }
-    if (points != null) {
-      _result.points = points;
-    }
-    return _result;
-  }
-  factory UpdateHousePointsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdateHousePointsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UpdateHousePointsRequest clone() => UpdateHousePointsRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UpdateHousePointsRequest copyWith(void Function(UpdateHousePointsRequest) updates) => super.copyWith((message) => updates(message as UpdateHousePointsRequest)) as UpdateHousePointsRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static UpdateHousePointsRequest create() => UpdateHousePointsRequest._();
-  UpdateHousePointsRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateHousePointsRequest> createRepeated() => $pb.PbList<UpdateHousePointsRequest>();
-  @$core.pragma('dart2js:noInline')
-  static UpdateHousePointsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateHousePointsRequest>(create);
-  static UpdateHousePointsRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get branchId => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set branchId($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasBranchId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearBranchId() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.int get houseId => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set houseId($core.int v) { $_setSignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasHouseId() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearHouseId() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.int get points => $_getIZ(2);
-  @$pb.TagNumber(3)
-  set points($core.int v) { $_setSignedInt32(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasPoints() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearPoints() => clearField(3);
 }
 

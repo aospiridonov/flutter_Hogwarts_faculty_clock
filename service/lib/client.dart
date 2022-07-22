@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:grpc/grpc.dart';
 import 'package:proto/generated/hogwarts.pbgrpc.dart';
 
 class HogwartsTerminalClient {
   late final ClientChannel channel;
   late final HogwartsClient stub;
+  //late final StreamController<BranchID> _controllerRequestHouses;
+  //late final StreamController<Houses> _controllerResponseHouses;
 
   HogwartsTerminalClient() {
     channel = ClientChannel(
@@ -23,8 +27,9 @@ class HogwartsTerminalClient {
     return school;
   }
 
-  Future<void> callService(GetSchoolRequest stub) async {
+  Future<void> callService() async {
+    print('callService1');
     await getSchool();
-    await channel.shutdown();
+    channel.shutdown();
   }
 }
