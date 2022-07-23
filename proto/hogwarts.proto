@@ -2,47 +2,38 @@ syntax = "proto3";
 
 // Interface by server.
 service Hogwarts {
-    rpc GetSchool(GetSchoolRequest) returns (School);
+    rpc connect(Empty) returns (Empty);
     
+    //house
     rpc UpdatePoints(UpdateHousePointsRequest) returns (Empty);
-
     rpc FetchHouses(stream BranchID) returns (Empty);
     rpc StreamHouses(BranchID) returns (stream Houses);
+
+    //branche
+    rpc FetchBranches(Empty) returns (Branches);
+    rpc StreamBranches(Empty) returns (stream Branches);
+    rpc AddBranch(Branch)    returns (State);
+    rpc RemoveBranch(Branch) returns (State);
+    rpc UpdateBranch(Branch) returns (State);
 }
 
+message Empty {}
 
-//TODO: // requests
-message GetSchoolRequest {
+message State {
+    int32 status = 1;
 }
 
-message BranchID {
-    int32 id = 1;
-}
+// house
 
-message UpdateHousePointsRequest{
-    int32 branch_id = 1;
-    int32 house_id = 2;
-    int32 points = 3;
-}
-
-message Empty{}
-
-
-// base data
 message House {
     int32 id = 1;
     int32 points = 2;
 }
 
-message Branch {
-    int32 id = 1;
-    string name = 2;
-    repeated House houses = 3;
-}
-
-message School {
-    int32 id = 1;
-    repeated Branch branches = 2;
+message UpdateHousePointsRequest {
+    int32 branch_id = 1;
+    int32 house_id = 2;
+    int32 points = 3;
 }
 
 message Houses {
@@ -50,4 +41,31 @@ message Houses {
     repeated House houses = 2;
 }
 
+// branches
 
+message BranchID {
+    int32 id = 1;
+}
+
+message Branch {
+    int32 id = 1;
+    string name = 2;
+}
+
+message Branches {
+    repeated Branch branches = 1;
+}
+
+// data model
+//TODO: remove SchoolModel
+message SchoolModel {
+    int32 id = 1;
+    repeated BranchModel branches = 2;
+}
+
+//TODO: remove BranchModel
+message BranchModel {
+    int32 id = 1;
+    string name = 2;
+    repeated House houses = 3;
+}

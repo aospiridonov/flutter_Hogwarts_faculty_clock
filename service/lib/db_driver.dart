@@ -3,21 +3,21 @@ import 'dart:io';
 
 import 'package:proto/generated/hogwarts.pb.dart';
 
-School schoolDb = _readDb();
+SchoolModel schoolDb = _readDb();
 
 dynamic _getSchool() {
   final jsonString = File('db/db.json').readAsStringSync();
   return jsonDecode(jsonString);
 }
 
-School _readDb() {
+SchoolModel _readDb() {
   final schoolMap = _getSchool();
 
-  return School(
+  return SchoolModel(
       id: schoolMap['id'],
       branches: (schoolMap['branches'] as List<dynamic>).map((branch) {
         //branch.
-        return Branch()
+        return BranchModel()
           ..id = branch['id']
           ..name = branch['name']
           ..houses.addAll((branch['houses'] as List<dynamic>).map((house) {
@@ -26,4 +26,8 @@ School _readDb() {
               ..points = house['points'];
           }));
       }).toList());
+}
+
+List<House> makeHouses() {
+  return List<House>.generate(4, (index) => House(id: index, points: 0));
 }

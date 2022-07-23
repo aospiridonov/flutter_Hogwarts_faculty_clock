@@ -17,9 +17,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const HogwartsPage(),
       routes: {
+        HomePage.routeName: (_) => const HomePage(),
         HousePage.routeName: (_) => const HousePage(),
+        HogwartsPage.routeName: (_) => const HogwartsPage(),
+        BranchEditPage.routeName: (_) => const BranchEditPage(),
       },
     );
   }

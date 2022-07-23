@@ -4,7 +4,7 @@ part of 'hogwarts_bloc.dart';
 class HogwartsState with _$HogwartsState {
   const factory HogwartsState.initial() = HogwartsStateInitial;
   const factory HogwartsState.loading() = HogwartsStateLoading;
-  const factory HogwartsState.loaded({required HogwartsBranch branch}) =
+  const factory HogwartsState.loaded({required Branch branch}) =
       HogwartsStateLoaded;
   const factory HogwartsState.error() = HogwartsStateError;
 }

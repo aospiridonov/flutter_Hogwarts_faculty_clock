@@ -7,12 +7,12 @@ import 'package:proto/generated/hogwarts.pb.dart' as proto;
 import 'package:client_app/repositories/repositories.dart';
 import 'package:client_app/constants/house_constants.dart' as constants;
 
-class GrpcHogwartsBranchRepository implements HogwartsBranchRepository {
+class GrpcBranchRepository implements HogwartsBranchRepository {
   final int branchId;
   late final GrpcHogwartsService _service;
   late final Stream<proto.Houses> _stream;
 
-  GrpcHogwartsBranchRepository(this.branchId) {
+  GrpcBranchRepository(this.branchId) {
     _service = GrpcHogwartsService.instance;
     _stream = _service.houses;
   }

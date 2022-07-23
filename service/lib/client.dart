@@ -21,15 +21,9 @@ class HogwartsTerminalClient {
     stub = HogwartsClient(channel);
   }
 
-  Future<School> getSchool() async {
-    final school = await stub.getSchool(GetSchoolRequest());
-    print('Received school: $school');
-    return school;
-  }
-
   Future<void> callService() async {
     print('callService1');
-    await getSchool();
+    await stub.connect(Empty());
     channel.shutdown();
   }
 }

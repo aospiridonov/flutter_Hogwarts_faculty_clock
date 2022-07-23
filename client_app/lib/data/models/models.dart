@@ -1,2 +1,2 @@
-export 'hogwarts_branch.dart';
+export 'branch.dart';
 export 'house.dart';

@@ -11,7 +11,7 @@ part 'hogwarts_event.dart';
 part 'hogwarts_state.dart';
 
 class HogwartsBloc extends Bloc<HogwartsEvent, HogwartsState> {
-  final HogwartsRepository _repository;
+  final SchoolRepository _repository;
   HogwartsBloc(this._repository) : super(const HogwartsState.initial()) {
     on<HogwartsEventFetch>((event, emit) async {
       //await Future.delayed(Duration(seconds: 1));

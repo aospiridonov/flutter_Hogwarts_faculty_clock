@@ -12,6 +12,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<HogwartsBloc>().state;
+
     return state.when(
       loaded: (branch) => Scaffold(
         appBar: AppBar(
@@ -22,7 +23,7 @@ class HomeView extends StatelessWidget {
           color: Colors.grey[100],
           child: BlocProvider(
             create: (context) => HogwartsBranchBloc(
-              GrpcHogwartsBranchRepository(0),
+              GrpcBranchRepository(branch.id),
             )..add(
                 const HogwartsBranchEvent.fetch(),
               ),

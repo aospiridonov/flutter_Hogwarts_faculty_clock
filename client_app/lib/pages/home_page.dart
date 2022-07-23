@@ -6,7 +6,7 @@ import 'package:client_app/blocs/blocs.dart';
 import 'package:client_app/widgets/home_view.dart';
 
 class HomePage extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = '/home';
 
   const HomePage({Key? key}) : super(key: key);
 
@@ -17,10 +17,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final branshId = (ModalRoute.of(context)?.settings.arguments ?? 0) as int;
     return BlocProvider(
       create: (context) =>
-          HogwartsBloc(GrpcHogwartsRepository()) //DummyHogwartsRepository
-            ..add(const HogwartsEvent.fetch(id: 0)),
+          HogwartsBloc(GrpcSchoolRepository()) //DummyHogwartsRepository
+            ..add(HogwartsEvent.fetch(id: branshId)),
       child: const HomeView(),
     );
   }

@@ -225,7 +225,7 @@ mixin _$HogwartsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HogwartsBranch branch) loaded,
+    required TResult Function(Branch branch) loaded,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -233,7 +233,7 @@ mixin _$HogwartsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -241,7 +241,7 @@ mixin _$HogwartsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -333,7 +333,7 @@ class _$HogwartsStateInitial implements HogwartsStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HogwartsBranch branch) loaded,
+    required TResult Function(Branch branch) loaded,
     required TResult Function() error,
   }) {
     return initial();
@@ -344,7 +344,7 @@ class _$HogwartsStateInitial implements HogwartsStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
   }) {
     return initial?.call();
@@ -355,7 +355,7 @@ class _$HogwartsStateInitial implements HogwartsStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -450,7 +450,7 @@ class _$HogwartsStateLoading implements HogwartsStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HogwartsBranch branch) loaded,
+    required TResult Function(Branch branch) loaded,
     required TResult Function() error,
   }) {
     return loading();
@@ -461,7 +461,7 @@ class _$HogwartsStateLoading implements HogwartsStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
   }) {
     return loading?.call();
@@ -472,7 +472,7 @@ class _$HogwartsStateLoading implements HogwartsStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -529,9 +529,9 @@ abstract class _$$HogwartsStateLoadedCopyWith<$Res> {
   factory _$$HogwartsStateLoadedCopyWith(_$HogwartsStateLoaded value,
           $Res Function(_$HogwartsStateLoaded) then) =
       __$$HogwartsStateLoadedCopyWithImpl<$Res>;
-  $Res call({HogwartsBranch branch});
+  $Res call({Branch branch});
 
-  $HogwartsBranchCopyWith<$Res> get branch;
+  $BranchCopyWith<$Res> get branch;
 }
 
 /// @nodoc
@@ -553,13 +553,13 @@ class __$$HogwartsStateLoadedCopyWithImpl<$Res>
       branch: branch == freezed
           ? _value.branch
           : branch // ignore: cast_nullable_to_non_nullable
-              as HogwartsBranch,
+              as Branch,
     ));
   }
 
   @override
-  $HogwartsBranchCopyWith<$Res> get branch {
-    return $HogwartsBranchCopyWith<$Res>(_value.branch, (value) {
+  $BranchCopyWith<$Res> get branch {
+    return $BranchCopyWith<$Res>(_value.branch, (value) {
       return _then(_value.copyWith(branch: value));
     });
   }
@@ -571,7 +571,7 @@ class _$HogwartsStateLoaded implements HogwartsStateLoaded {
   const _$HogwartsStateLoaded({required this.branch});
 
   @override
-  final HogwartsBranch branch;
+  final Branch branch;
 
   @override
   String toString() {
@@ -601,7 +601,7 @@ class _$HogwartsStateLoaded implements HogwartsStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HogwartsBranch branch) loaded,
+    required TResult Function(Branch branch) loaded,
     required TResult Function() error,
   }) {
     return loaded(branch);
@@ -612,7 +612,7 @@ class _$HogwartsStateLoaded implements HogwartsStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
   }) {
     return loaded?.call(branch);
@@ -623,7 +623,7 @@ class _$HogwartsStateLoaded implements HogwartsStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -672,10 +672,10 @@ class _$HogwartsStateLoaded implements HogwartsStateLoaded {
 }
 
 abstract class HogwartsStateLoaded implements HogwartsState {
-  const factory HogwartsStateLoaded({required final HogwartsBranch branch}) =
+  const factory HogwartsStateLoaded({required final Branch branch}) =
       _$HogwartsStateLoaded;
 
-  HogwartsBranch get branch;
+  Branch get branch;
   @JsonKey(ignore: true)
   _$$HogwartsStateLoadedCopyWith<_$HogwartsStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -724,7 +724,7 @@ class _$HogwartsStateError implements HogwartsStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HogwartsBranch branch) loaded,
+    required TResult Function(Branch branch) loaded,
     required TResult Function() error,
   }) {
     return error();
@@ -735,7 +735,7 @@ class _$HogwartsStateError implements HogwartsStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
   }) {
     return error?.call();
@@ -746,7 +746,7 @@ class _$HogwartsStateError implements HogwartsStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HogwartsBranch branch)? loaded,
+    TResult Function(Branch branch)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'hogwarts_branch.dart';
+part of 'branch.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,31 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HogwartsBranch {
+mixin _$Branch {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HogwartsBranchCopyWith<HogwartsBranch> get copyWith =>
-      throw _privateConstructorUsedError;
+  $BranchCopyWith<Branch> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HogwartsBranchCopyWith<$Res> {
-  factory $HogwartsBranchCopyWith(
-          HogwartsBranch value, $Res Function(HogwartsBranch) then) =
-      _$HogwartsBranchCopyWithImpl<$Res>;
+abstract class $BranchCopyWith<$Res> {
+  factory $BranchCopyWith(Branch value, $Res Function(Branch) then) =
+      _$BranchCopyWithImpl<$Res>;
   $Res call({int id, String name});
 }
 
 /// @nodoc
-class _$HogwartsBranchCopyWithImpl<$Res>
-    implements $HogwartsBranchCopyWith<$Res> {
-  _$HogwartsBranchCopyWithImpl(this._value, this._then);
+class _$BranchCopyWithImpl<$Res> implements $BranchCopyWith<$Res> {
+  _$BranchCopyWithImpl(this._value, this._then);
 
-  final HogwartsBranch _value;
+  final Branch _value;
   // ignore: unused_field
-  final $Res Function(HogwartsBranch) _then;
+  final $Res Function(Branch) _then;
 
   @override
   $Res call({
@@ -60,32 +57,28 @@ class _$HogwartsBranchCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_HogwartsBranchCopyWith<$Res>
-    implements $HogwartsBranchCopyWith<$Res> {
-  factory _$$_HogwartsBranchCopyWith(
-          _$_HogwartsBranch value, $Res Function(_$_HogwartsBranch) then) =
-      __$$_HogwartsBranchCopyWithImpl<$Res>;
+abstract class _$$_BranchCopyWith<$Res> implements $BranchCopyWith<$Res> {
+  factory _$$_BranchCopyWith(_$_Branch value, $Res Function(_$_Branch) then) =
+      __$$_BranchCopyWithImpl<$Res>;
   @override
   $Res call({int id, String name});
 }
 
 /// @nodoc
-class __$$_HogwartsBranchCopyWithImpl<$Res>
-    extends _$HogwartsBranchCopyWithImpl<$Res>
-    implements _$$_HogwartsBranchCopyWith<$Res> {
-  __$$_HogwartsBranchCopyWithImpl(
-      _$_HogwartsBranch _value, $Res Function(_$_HogwartsBranch) _then)
-      : super(_value, (v) => _then(v as _$_HogwartsBranch));
+class __$$_BranchCopyWithImpl<$Res> extends _$BranchCopyWithImpl<$Res>
+    implements _$$_BranchCopyWith<$Res> {
+  __$$_BranchCopyWithImpl(_$_Branch _value, $Res Function(_$_Branch) _then)
+      : super(_value, (v) => _then(v as _$_Branch));
 
   @override
-  _$_HogwartsBranch get _value => super._value as _$_HogwartsBranch;
+  _$_Branch get _value => super._value as _$_Branch;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
   }) {
-    return _then(_$_HogwartsBranch(
+    return _then(_$_Branch(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -100,8 +93,8 @@ class __$$_HogwartsBranchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HogwartsBranch implements _HogwartsBranch {
-  const _$_HogwartsBranch({required this.id, required this.name});
+class _$_Branch implements _Branch {
+  const _$_Branch({required this.id, required this.name});
 
   @override
   final int id;
@@ -110,14 +103,14 @@ class _$_HogwartsBranch implements _HogwartsBranch {
 
   @override
   String toString() {
-    return 'HogwartsBranch(id: $id, name: $name)';
+    return 'Branch(id: $id, name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HogwartsBranch &&
+            other is _$_Branch &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name));
   }
@@ -130,13 +123,13 @@ class _$_HogwartsBranch implements _HogwartsBranch {
 
   @JsonKey(ignore: true)
   @override
-  _$$_HogwartsBranchCopyWith<_$_HogwartsBranch> get copyWith =>
-      __$$_HogwartsBranchCopyWithImpl<_$_HogwartsBranch>(this, _$identity);
+  _$$_BranchCopyWith<_$_Branch> get copyWith =>
+      __$$_BranchCopyWithImpl<_$_Branch>(this, _$identity);
 }
 
-abstract class _HogwartsBranch implements HogwartsBranch {
-  const factory _HogwartsBranch(
-      {required final int id, required final String name}) = _$_HogwartsBranch;
+abstract class _Branch implements Branch {
+  const factory _Branch({required final int id, required final String name}) =
+      _$_Branch;
 
   @override
   int get id;
@@ -144,6 +137,6 @@ abstract class _HogwartsBranch implements HogwartsBranch {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_HogwartsBranchCopyWith<_$_HogwartsBranch> get copyWith =>
+  _$$_BranchCopyWith<_$_Branch> get copyWith =>
       throw _privateConstructorUsedError;
 }
