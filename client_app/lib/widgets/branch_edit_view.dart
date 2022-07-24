@@ -43,12 +43,12 @@ class BranchEditView extends StatelessWidget {
         child: Card(
           margin: const EdgeInsets.all(20),
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             height: 120,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [_TitleField()],
+              children: const [_TitleField()],
             ),
           ),
         ),

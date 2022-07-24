@@ -26,7 +26,7 @@ class ConnectionsView extends StatelessWidget {
             connection.info.forEach((k, v) => list.add(Text('$k: $v')));
             return Card(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,

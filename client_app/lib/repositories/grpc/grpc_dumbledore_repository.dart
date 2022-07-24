@@ -32,7 +32,7 @@ class GrpcDumbledoreRepository {
         info: protoConnection.info);
   }
 
-  @override
+
   Future<void> dispose() async {
     _service.dispose();
   }
