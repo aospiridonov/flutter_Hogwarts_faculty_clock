@@ -1,10 +1,12 @@
 import 'package:client_app/cubits/cubits.dart';
 import 'package:client_app/data/models/models.dart';
 import 'package:client_app/repositories/repositories.dart';
+import 'package:client_app/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:client_app/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class HousePage extends StatelessWidget {
   static const routeName = '/house';
@@ -15,6 +17,7 @@ class HousePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as HouseArguments;
     final house = args.house;
+    final service = args.service;
     return Scaffold(
       appBar: AppBar(),
       body: Card(
@@ -24,8 +27,8 @@ class HousePage extends StatelessWidget {
           child: BlocProvider(
             create: (context) => HouseCubit(
               GrpcHouseRepository(
-                branchId: args.branchId,
-                houseId: house.id,
+                service,
+                id: house.id,
               ),
             )..load(),
             child: BlocBuilder<HouseCubit, HouseState>(
@@ -91,11 +94,11 @@ class HousePage extends StatelessWidget {
 }
 
 class HouseArguments {
-  final int branchId;
+  final GrpcBranchService service;
   final House house;
 
   const HouseArguments({
-    required this.branchId,
+    required this.service,
     required this.house,
   });
 }

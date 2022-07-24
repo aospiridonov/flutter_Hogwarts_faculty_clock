@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'hogwarts_branch_bloc.dart';
+part of 'branch_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HogwartsBranchEvent {
+mixin _$BranchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
@@ -37,76 +37,74 @@ mixin _$HogwartsBranchEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventGet value) fetch,
-    required TResult Function(HogwartsBranchEventFetched value) fetched,
+    required TResult Function(BranchEventFetch value) fetch,
+    required TResult Function(BranchEventFetched value) fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? fetch,
-    TResult Function(HogwartsBranchEventFetched value)? fetched,
+    TResult Function(BranchEventFetch value)? fetch,
+    TResult Function(BranchEventFetched value)? fetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? fetch,
-    TResult Function(HogwartsBranchEventFetched value)? fetched,
+    TResult Function(BranchEventFetch value)? fetch,
+    TResult Function(BranchEventFetched value)? fetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HogwartsBranchEventCopyWith<$Res> {
-  factory $HogwartsBranchEventCopyWith(
-          HogwartsBranchEvent value, $Res Function(HogwartsBranchEvent) then) =
-      _$HogwartsBranchEventCopyWithImpl<$Res>;
+abstract class $BranchEventCopyWith<$Res> {
+  factory $BranchEventCopyWith(
+          BranchEvent value, $Res Function(BranchEvent) then) =
+      _$BranchEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$HogwartsBranchEventCopyWithImpl<$Res>
-    implements $HogwartsBranchEventCopyWith<$Res> {
-  _$HogwartsBranchEventCopyWithImpl(this._value, this._then);
+class _$BranchEventCopyWithImpl<$Res> implements $BranchEventCopyWith<$Res> {
+  _$BranchEventCopyWithImpl(this._value, this._then);
 
-  final HogwartsBranchEvent _value;
+  final BranchEvent _value;
   // ignore: unused_field
-  final $Res Function(HogwartsBranchEvent) _then;
+  final $Res Function(BranchEvent) _then;
 }
 
 /// @nodoc
-abstract class _$$HogwartsBranchEventGetCopyWith<$Res> {
-  factory _$$HogwartsBranchEventGetCopyWith(_$HogwartsBranchEventGet value,
-          $Res Function(_$HogwartsBranchEventGet) then) =
-      __$$HogwartsBranchEventGetCopyWithImpl<$Res>;
+abstract class _$$BranchEventFetchCopyWith<$Res> {
+  factory _$$BranchEventFetchCopyWith(
+          _$BranchEventFetch value, $Res Function(_$BranchEventFetch) then) =
+      __$$BranchEventFetchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HogwartsBranchEventGetCopyWithImpl<$Res>
-    extends _$HogwartsBranchEventCopyWithImpl<$Res>
-    implements _$$HogwartsBranchEventGetCopyWith<$Res> {
-  __$$HogwartsBranchEventGetCopyWithImpl(_$HogwartsBranchEventGet _value,
-      $Res Function(_$HogwartsBranchEventGet) _then)
-      : super(_value, (v) => _then(v as _$HogwartsBranchEventGet));
+class __$$BranchEventFetchCopyWithImpl<$Res>
+    extends _$BranchEventCopyWithImpl<$Res>
+    implements _$$BranchEventFetchCopyWith<$Res> {
+  __$$BranchEventFetchCopyWithImpl(
+      _$BranchEventFetch _value, $Res Function(_$BranchEventFetch) _then)
+      : super(_value, (v) => _then(v as _$BranchEventFetch));
 
   @override
-  _$HogwartsBranchEventGet get _value =>
-      super._value as _$HogwartsBranchEventGet;
+  _$BranchEventFetch get _value => super._value as _$BranchEventFetch;
 }
 
 /// @nodoc
 
-class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
-  const _$HogwartsBranchEventGet();
+class _$BranchEventFetch implements BranchEventFetch {
+  const _$BranchEventFetch();
 
   @override
   String toString() {
-    return 'HogwartsBranchEvent.fetch()';
+    return 'BranchEvent.fetch()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HogwartsBranchEventGet);
+        (other.runtimeType == runtimeType && other is _$BranchEventFetch);
   }
 
   @override
@@ -146,8 +144,8 @@ class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventGet value) fetch,
-    required TResult Function(HogwartsBranchEventFetched value) fetched,
+    required TResult Function(BranchEventFetch value) fetch,
+    required TResult Function(BranchEventFetched value) fetched,
   }) {
     return fetch(this);
   }
@@ -155,8 +153,8 @@ class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? fetch,
-    TResult Function(HogwartsBranchEventFetched value)? fetched,
+    TResult Function(BranchEventFetch value)? fetch,
+    TResult Function(BranchEventFetched value)? fetched,
   }) {
     return fetch?.call(this);
   }
@@ -164,8 +162,8 @@ class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? fetch,
-    TResult Function(HogwartsBranchEventFetched value)? fetched,
+    TResult Function(BranchEventFetch value)? fetch,
+    TResult Function(BranchEventFetched value)? fetched,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -175,37 +173,34 @@ class _$HogwartsBranchEventGet implements HogwartsBranchEventGet {
   }
 }
 
-abstract class HogwartsBranchEventGet implements HogwartsBranchEvent {
-  const factory HogwartsBranchEventGet() = _$HogwartsBranchEventGet;
+abstract class BranchEventFetch implements BranchEvent {
+  const factory BranchEventFetch() = _$BranchEventFetch;
 }
 
 /// @nodoc
-abstract class _$$HogwartsBranchEventFetchedCopyWith<$Res> {
-  factory _$$HogwartsBranchEventFetchedCopyWith(
-          _$HogwartsBranchEventFetched value,
-          $Res Function(_$HogwartsBranchEventFetched) then) =
-      __$$HogwartsBranchEventFetchedCopyWithImpl<$Res>;
+abstract class _$$BranchEventFetchedCopyWith<$Res> {
+  factory _$$BranchEventFetchedCopyWith(_$BranchEventFetched value,
+          $Res Function(_$BranchEventFetched) then) =
+      __$$BranchEventFetchedCopyWithImpl<$Res>;
   $Res call({List<House> houses});
 }
 
 /// @nodoc
-class __$$HogwartsBranchEventFetchedCopyWithImpl<$Res>
-    extends _$HogwartsBranchEventCopyWithImpl<$Res>
-    implements _$$HogwartsBranchEventFetchedCopyWith<$Res> {
-  __$$HogwartsBranchEventFetchedCopyWithImpl(
-      _$HogwartsBranchEventFetched _value,
-      $Res Function(_$HogwartsBranchEventFetched) _then)
-      : super(_value, (v) => _then(v as _$HogwartsBranchEventFetched));
+class __$$BranchEventFetchedCopyWithImpl<$Res>
+    extends _$BranchEventCopyWithImpl<$Res>
+    implements _$$BranchEventFetchedCopyWith<$Res> {
+  __$$BranchEventFetchedCopyWithImpl(
+      _$BranchEventFetched _value, $Res Function(_$BranchEventFetched) _then)
+      : super(_value, (v) => _then(v as _$BranchEventFetched));
 
   @override
-  _$HogwartsBranchEventFetched get _value =>
-      super._value as _$HogwartsBranchEventFetched;
+  _$BranchEventFetched get _value => super._value as _$BranchEventFetched;
 
   @override
   $Res call({
     Object? houses = freezed,
   }) {
-    return _then(_$HogwartsBranchEventFetched(
+    return _then(_$BranchEventFetched(
       houses == freezed
           ? _value._houses
           : houses // ignore: cast_nullable_to_non_nullable
@@ -216,9 +211,8 @@ class __$$HogwartsBranchEventFetchedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
-  const _$HogwartsBranchEventFetched(final List<House> houses)
-      : _houses = houses;
+class _$BranchEventFetched implements BranchEventFetched {
+  const _$BranchEventFetched(final List<House> houses) : _houses = houses;
 
   final List<House> _houses;
   @override
@@ -229,14 +223,14 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
 
   @override
   String toString() {
-    return 'HogwartsBranchEvent.fetched(houses: $houses)';
+    return 'BranchEvent.fetched(houses: $houses)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HogwartsBranchEventFetched &&
+            other is _$BranchEventFetched &&
             const DeepCollectionEquality().equals(other._houses, _houses));
   }
 
@@ -246,9 +240,9 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
 
   @JsonKey(ignore: true)
   @override
-  _$$HogwartsBranchEventFetchedCopyWith<_$HogwartsBranchEventFetched>
-      get copyWith => __$$HogwartsBranchEventFetchedCopyWithImpl<
-          _$HogwartsBranchEventFetched>(this, _$identity);
+  _$$BranchEventFetchedCopyWith<_$BranchEventFetched> get copyWith =>
+      __$$BranchEventFetchedCopyWithImpl<_$BranchEventFetched>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -284,8 +278,8 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HogwartsBranchEventGet value) fetch,
-    required TResult Function(HogwartsBranchEventFetched value) fetched,
+    required TResult Function(BranchEventFetch value) fetch,
+    required TResult Function(BranchEventFetched value) fetched,
   }) {
     return fetched(this);
   }
@@ -293,8 +287,8 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? fetch,
-    TResult Function(HogwartsBranchEventFetched value)? fetched,
+    TResult Function(BranchEventFetch value)? fetch,
+    TResult Function(BranchEventFetched value)? fetched,
   }) {
     return fetched?.call(this);
   }
@@ -302,8 +296,8 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HogwartsBranchEventGet value)? fetch,
-    TResult Function(HogwartsBranchEventFetched value)? fetched,
+    TResult Function(BranchEventFetch value)? fetch,
+    TResult Function(BranchEventFetched value)? fetched,
     required TResult orElse(),
   }) {
     if (fetched != null) {
@@ -313,18 +307,18 @@ class _$HogwartsBranchEventFetched implements HogwartsBranchEventFetched {
   }
 }
 
-abstract class HogwartsBranchEventFetched implements HogwartsBranchEvent {
-  const factory HogwartsBranchEventFetched(final List<House> houses) =
-      _$HogwartsBranchEventFetched;
+abstract class BranchEventFetched implements BranchEvent {
+  const factory BranchEventFetched(final List<House> houses) =
+      _$BranchEventFetched;
 
   List<House> get houses;
   @JsonKey(ignore: true)
-  _$$HogwartsBranchEventFetchedCopyWith<_$HogwartsBranchEventFetched>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$BranchEventFetchedCopyWith<_$BranchEventFetched> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$HogwartsBranchState {
+mixin _$BranchState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -354,44 +348,43 @@ mixin _$HogwartsBranchState {
   TResult map<TResult extends Object?>({
     required TResult Function(HogwartsBranchStateInitial value) initial,
     required TResult Function(HogwartsBranchStateLoading value) loading,
-    required TResult Function(HogwartsBranchStateLoaded value) loaded,
-    required TResult Function(HogwartsBranchStateError value) error,
+    required TResult Function(BranchStateLoaded value) loaded,
+    required TResult Function(BranchStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HogwartsBranchStateCopyWith<$Res> {
-  factory $HogwartsBranchStateCopyWith(
-          HogwartsBranchState value, $Res Function(HogwartsBranchState) then) =
-      _$HogwartsBranchStateCopyWithImpl<$Res>;
+abstract class $BranchStateCopyWith<$Res> {
+  factory $BranchStateCopyWith(
+          BranchState value, $Res Function(BranchState) then) =
+      _$BranchStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$HogwartsBranchStateCopyWithImpl<$Res>
-    implements $HogwartsBranchStateCopyWith<$Res> {
-  _$HogwartsBranchStateCopyWithImpl(this._value, this._then);
+class _$BranchStateCopyWithImpl<$Res> implements $BranchStateCopyWith<$Res> {
+  _$BranchStateCopyWithImpl(this._value, this._then);
 
-  final HogwartsBranchState _value;
+  final BranchState _value;
   // ignore: unused_field
-  final $Res Function(HogwartsBranchState) _then;
+  final $Res Function(BranchState) _then;
 }
 
 /// @nodoc
@@ -404,7 +397,7 @@ abstract class _$$HogwartsBranchStateInitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$HogwartsBranchStateInitialCopyWithImpl<$Res>
-    extends _$HogwartsBranchStateCopyWithImpl<$Res>
+    extends _$BranchStateCopyWithImpl<$Res>
     implements _$$HogwartsBranchStateInitialCopyWith<$Res> {
   __$$HogwartsBranchStateInitialCopyWithImpl(
       _$HogwartsBranchStateInitial _value,
@@ -423,7 +416,7 @@ class _$HogwartsBranchStateInitial implements HogwartsBranchStateInitial {
 
   @override
   String toString() {
-    return 'HogwartsBranchState.initial()';
+    return 'BranchState.initial()';
   }
 
   @override
@@ -478,8 +471,8 @@ class _$HogwartsBranchStateInitial implements HogwartsBranchStateInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(HogwartsBranchStateInitial value) initial,
     required TResult Function(HogwartsBranchStateLoading value) loading,
-    required TResult Function(HogwartsBranchStateLoaded value) loaded,
-    required TResult Function(HogwartsBranchStateError value) error,
+    required TResult Function(BranchStateLoaded value) loaded,
+    required TResult Function(BranchStateError value) error,
   }) {
     return initial(this);
   }
@@ -489,8 +482,8 @@ class _$HogwartsBranchStateInitial implements HogwartsBranchStateInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -500,8 +493,8 @@ class _$HogwartsBranchStateInitial implements HogwartsBranchStateInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -511,7 +504,7 @@ class _$HogwartsBranchStateInitial implements HogwartsBranchStateInitial {
   }
 }
 
-abstract class HogwartsBranchStateInitial implements HogwartsBranchState {
+abstract class HogwartsBranchStateInitial implements BranchState {
   const factory HogwartsBranchStateInitial() = _$HogwartsBranchStateInitial;
 }
 
@@ -525,7 +518,7 @@ abstract class _$$HogwartsBranchStateLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$HogwartsBranchStateLoadingCopyWithImpl<$Res>
-    extends _$HogwartsBranchStateCopyWithImpl<$Res>
+    extends _$BranchStateCopyWithImpl<$Res>
     implements _$$HogwartsBranchStateLoadingCopyWith<$Res> {
   __$$HogwartsBranchStateLoadingCopyWithImpl(
       _$HogwartsBranchStateLoading _value,
@@ -544,7 +537,7 @@ class _$HogwartsBranchStateLoading implements HogwartsBranchStateLoading {
 
   @override
   String toString() {
-    return 'HogwartsBranchState.loading()';
+    return 'BranchState.loading()';
   }
 
   @override
@@ -599,8 +592,8 @@ class _$HogwartsBranchStateLoading implements HogwartsBranchStateLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(HogwartsBranchStateInitial value) initial,
     required TResult Function(HogwartsBranchStateLoading value) loading,
-    required TResult Function(HogwartsBranchStateLoaded value) loaded,
-    required TResult Function(HogwartsBranchStateError value) error,
+    required TResult Function(BranchStateLoaded value) loaded,
+    required TResult Function(BranchStateError value) error,
   }) {
     return loading(this);
   }
@@ -610,8 +603,8 @@ class _$HogwartsBranchStateLoading implements HogwartsBranchStateLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -621,8 +614,8 @@ class _$HogwartsBranchStateLoading implements HogwartsBranchStateLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -632,36 +625,34 @@ class _$HogwartsBranchStateLoading implements HogwartsBranchStateLoading {
   }
 }
 
-abstract class HogwartsBranchStateLoading implements HogwartsBranchState {
+abstract class HogwartsBranchStateLoading implements BranchState {
   const factory HogwartsBranchStateLoading() = _$HogwartsBranchStateLoading;
 }
 
 /// @nodoc
-abstract class _$$HogwartsBranchStateLoadedCopyWith<$Res> {
-  factory _$$HogwartsBranchStateLoadedCopyWith(
-          _$HogwartsBranchStateLoaded value,
-          $Res Function(_$HogwartsBranchStateLoaded) then) =
-      __$$HogwartsBranchStateLoadedCopyWithImpl<$Res>;
+abstract class _$$BranchStateLoadedCopyWith<$Res> {
+  factory _$$BranchStateLoadedCopyWith(
+          _$BranchStateLoaded value, $Res Function(_$BranchStateLoaded) then) =
+      __$$BranchStateLoadedCopyWithImpl<$Res>;
   $Res call({List<House> houses});
 }
 
 /// @nodoc
-class __$$HogwartsBranchStateLoadedCopyWithImpl<$Res>
-    extends _$HogwartsBranchStateCopyWithImpl<$Res>
-    implements _$$HogwartsBranchStateLoadedCopyWith<$Res> {
-  __$$HogwartsBranchStateLoadedCopyWithImpl(_$HogwartsBranchStateLoaded _value,
-      $Res Function(_$HogwartsBranchStateLoaded) _then)
-      : super(_value, (v) => _then(v as _$HogwartsBranchStateLoaded));
+class __$$BranchStateLoadedCopyWithImpl<$Res>
+    extends _$BranchStateCopyWithImpl<$Res>
+    implements _$$BranchStateLoadedCopyWith<$Res> {
+  __$$BranchStateLoadedCopyWithImpl(
+      _$BranchStateLoaded _value, $Res Function(_$BranchStateLoaded) _then)
+      : super(_value, (v) => _then(v as _$BranchStateLoaded));
 
   @override
-  _$HogwartsBranchStateLoaded get _value =>
-      super._value as _$HogwartsBranchStateLoaded;
+  _$BranchStateLoaded get _value => super._value as _$BranchStateLoaded;
 
   @override
   $Res call({
     Object? houses = freezed,
   }) {
-    return _then(_$HogwartsBranchStateLoaded(
+    return _then(_$BranchStateLoaded(
       houses: houses == freezed
           ? _value._houses
           : houses // ignore: cast_nullable_to_non_nullable
@@ -672,8 +663,8 @@ class __$$HogwartsBranchStateLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HogwartsBranchStateLoaded implements HogwartsBranchStateLoaded {
-  const _$HogwartsBranchStateLoaded({required final List<House> houses})
+class _$BranchStateLoaded implements BranchStateLoaded {
+  const _$BranchStateLoaded({required final List<House> houses})
       : _houses = houses;
 
   final List<House> _houses;
@@ -685,14 +676,14 @@ class _$HogwartsBranchStateLoaded implements HogwartsBranchStateLoaded {
 
   @override
   String toString() {
-    return 'HogwartsBranchState.loaded(houses: $houses)';
+    return 'BranchState.loaded(houses: $houses)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HogwartsBranchStateLoaded &&
+            other is _$BranchStateLoaded &&
             const DeepCollectionEquality().equals(other._houses, _houses));
   }
 
@@ -702,9 +693,8 @@ class _$HogwartsBranchStateLoaded implements HogwartsBranchStateLoaded {
 
   @JsonKey(ignore: true)
   @override
-  _$$HogwartsBranchStateLoadedCopyWith<_$HogwartsBranchStateLoaded>
-      get copyWith => __$$HogwartsBranchStateLoadedCopyWithImpl<
-          _$HogwartsBranchStateLoaded>(this, _$identity);
+  _$$BranchStateLoadedCopyWith<_$BranchStateLoaded> get copyWith =>
+      __$$BranchStateLoadedCopyWithImpl<_$BranchStateLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -748,8 +738,8 @@ class _$HogwartsBranchStateLoaded implements HogwartsBranchStateLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(HogwartsBranchStateInitial value) initial,
     required TResult Function(HogwartsBranchStateLoading value) loading,
-    required TResult Function(HogwartsBranchStateLoaded value) loaded,
-    required TResult Function(HogwartsBranchStateError value) error,
+    required TResult Function(BranchStateLoaded value) loaded,
+    required TResult Function(BranchStateError value) error,
   }) {
     return loaded(this);
   }
@@ -759,8 +749,8 @@ class _$HogwartsBranchStateLoaded implements HogwartsBranchStateLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -770,8 +760,8 @@ class _$HogwartsBranchStateLoaded implements HogwartsBranchStateLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -781,51 +771,49 @@ class _$HogwartsBranchStateLoaded implements HogwartsBranchStateLoaded {
   }
 }
 
-abstract class HogwartsBranchStateLoaded implements HogwartsBranchState {
-  const factory HogwartsBranchStateLoaded({required final List<House> houses}) =
-      _$HogwartsBranchStateLoaded;
+abstract class BranchStateLoaded implements BranchState {
+  const factory BranchStateLoaded({required final List<House> houses}) =
+      _$BranchStateLoaded;
 
   List<House> get houses;
   @JsonKey(ignore: true)
-  _$$HogwartsBranchStateLoadedCopyWith<_$HogwartsBranchStateLoaded>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$BranchStateLoadedCopyWith<_$BranchStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$HogwartsBranchStateErrorCopyWith<$Res> {
-  factory _$$HogwartsBranchStateErrorCopyWith(_$HogwartsBranchStateError value,
-          $Res Function(_$HogwartsBranchStateError) then) =
-      __$$HogwartsBranchStateErrorCopyWithImpl<$Res>;
+abstract class _$$BranchStateErrorCopyWith<$Res> {
+  factory _$$BranchStateErrorCopyWith(
+          _$BranchStateError value, $Res Function(_$BranchStateError) then) =
+      __$$BranchStateErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HogwartsBranchStateErrorCopyWithImpl<$Res>
-    extends _$HogwartsBranchStateCopyWithImpl<$Res>
-    implements _$$HogwartsBranchStateErrorCopyWith<$Res> {
-  __$$HogwartsBranchStateErrorCopyWithImpl(_$HogwartsBranchStateError _value,
-      $Res Function(_$HogwartsBranchStateError) _then)
-      : super(_value, (v) => _then(v as _$HogwartsBranchStateError));
+class __$$BranchStateErrorCopyWithImpl<$Res>
+    extends _$BranchStateCopyWithImpl<$Res>
+    implements _$$BranchStateErrorCopyWith<$Res> {
+  __$$BranchStateErrorCopyWithImpl(
+      _$BranchStateError _value, $Res Function(_$BranchStateError) _then)
+      : super(_value, (v) => _then(v as _$BranchStateError));
 
   @override
-  _$HogwartsBranchStateError get _value =>
-      super._value as _$HogwartsBranchStateError;
+  _$BranchStateError get _value => super._value as _$BranchStateError;
 }
 
 /// @nodoc
 
-class _$HogwartsBranchStateError implements HogwartsBranchStateError {
-  const _$HogwartsBranchStateError();
+class _$BranchStateError implements BranchStateError {
+  const _$BranchStateError();
 
   @override
   String toString() {
-    return 'HogwartsBranchState.error()';
+    return 'BranchState.error()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HogwartsBranchStateError);
+        (other.runtimeType == runtimeType && other is _$BranchStateError);
   }
 
   @override
@@ -873,8 +861,8 @@ class _$HogwartsBranchStateError implements HogwartsBranchStateError {
   TResult map<TResult extends Object?>({
     required TResult Function(HogwartsBranchStateInitial value) initial,
     required TResult Function(HogwartsBranchStateLoading value) loading,
-    required TResult Function(HogwartsBranchStateLoaded value) loaded,
-    required TResult Function(HogwartsBranchStateError value) error,
+    required TResult Function(BranchStateLoaded value) loaded,
+    required TResult Function(BranchStateError value) error,
   }) {
     return error(this);
   }
@@ -884,8 +872,8 @@ class _$HogwartsBranchStateError implements HogwartsBranchStateError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
   }) {
     return error?.call(this);
   }
@@ -895,8 +883,8 @@ class _$HogwartsBranchStateError implements HogwartsBranchStateError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HogwartsBranchStateInitial value)? initial,
     TResult Function(HogwartsBranchStateLoading value)? loading,
-    TResult Function(HogwartsBranchStateLoaded value)? loaded,
-    TResult Function(HogwartsBranchStateError value)? error,
+    TResult Function(BranchStateLoaded value)? loaded,
+    TResult Function(BranchStateError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -906,6 +894,6 @@ class _$HogwartsBranchStateError implements HogwartsBranchStateError {
   }
 }
 
-abstract class HogwartsBranchStateError implements HogwartsBranchState {
-  const factory HogwartsBranchStateError() = _$HogwartsBranchStateError;
+abstract class BranchStateError implements BranchState {
+  const factory BranchStateError() = _$BranchStateError;
 }

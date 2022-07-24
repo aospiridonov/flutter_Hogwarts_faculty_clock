@@ -31,7 +31,7 @@ class BranchesView extends StatelessWidget {
             onDismissed: (direction) {},
             onTap: () {
               Navigator.of(context).pushNamed(
-                HomePage.routeName,
+                BranchPage.routeName,
                 arguments: branches[index].id,
               );
             },

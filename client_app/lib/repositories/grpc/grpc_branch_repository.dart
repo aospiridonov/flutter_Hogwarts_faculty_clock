@@ -1,20 +1,23 @@
 import 'dart:async';
 
+import 'package:client_app/constants/house_constants.dart' as constants;
 import 'package:client_app/data/models/models.dart';
-import 'package:client_app/services/grpc_hogwarts_service.dart';
+import 'package:client_app/repositories/repositories.dart';
+import 'package:client_app/services/services.dart';
 import 'package:proto/generated/hogwarts.pb.dart' as proto;
 
-import 'package:client_app/repositories/repositories.dart';
-import 'package:client_app/constants/house_constants.dart' as constants;
-
-class GrpcBranchRepository implements HogwartsBranchRepository {
-  final int branchId;
-  late final GrpcHogwartsService _service;
+class GrpcBranchRepository implements BranchRepository {
+  late final GrpcBranchService _service;
   late final Stream<proto.Houses> _stream;
 
-  GrpcBranchRepository(this.branchId) {
-    _service = GrpcHogwartsService.instance;
+  GrpcBranchRepository(this._service) {
     _stream = _service.houses;
+  }
+
+  @override
+  Future<void> fetch() async {
+    await _service.connect();
+    _service.fetchBranch();
   }
 
   @override
@@ -36,12 +39,13 @@ class GrpcBranchRepository implements HogwartsBranchRepository {
   }
 
   @override
-  Future<void> fetch() async {
-    _service.fetchBranch(branchId);
+  Future<void> dispose() async {
+    //_service.dispose();
   }
 
   @override
-  Future<void> dispose() async {
-    _service.dispose();
+  Future<Branch> getBranch(int id) {
+    // TODO: implement getBranch
+    throw UnimplementedError();
   }
 }

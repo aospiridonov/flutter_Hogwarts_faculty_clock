@@ -1,3 +1,4 @@
+import 'package:client_app/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,8 +7,8 @@ import 'package:client_app/data/models/models.dart';
 import 'package:client_app/pages/pages.dart';
 import 'package:client_app/widgets/chart_bar.dart';
 
-class Chart extends StatelessWidget {
-  const Chart({Key? key}) : super(key: key);
+class ChartView extends StatelessWidget {
+  const ChartView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class Chart extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       child: Padding(
         padding: const EdgeInsets.all(10),
-        child: BlocBuilder<HogwartsBranchBloc, HogwartsBranchState>(
+        child: BlocBuilder<BranchBloc, BranchState>(
           builder: (context, state) {
             return state.when(
                 loading: () =>
@@ -60,10 +61,11 @@ class _HouseBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        final service = context.read<GrpcBranchService>();
         Navigator.of(context).pushNamed(
           HousePage.routeName,
           arguments: HouseArguments(
-            branchId: branchId,
+            service: service,
             house: house,
           ),
         );

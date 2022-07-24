@@ -6,11 +6,13 @@ import 'package:proto/generated/hogwarts.pbgrpc.dart';
 import 'package:service/db_driver.dart';
 
 class HogwartsService extends HogwartsServiceBase {
-  late final StreamController<Houses> _controllerResponseHouses;
+  late final Map<String, StreamController<Houses>> _controllerHousesMap;
+  //late final StreamController<Houses> _controllerResponseHouses;
   late final StreamController<Branches> _controllerResponseBranches;
 
   HogwartsService() {
-    _controllerResponseHouses = StreamController<Houses>.broadcast();
+    _controllerHousesMap = <String, StreamController<Houses>>{};
+    //_controllerResponseHouses = StreamController<Houses>.broadcast();
     _controllerResponseBranches = StreamController<Branches>.broadcast();
   }
 
@@ -35,10 +37,11 @@ class HogwartsService extends HogwartsServiceBase {
       grpc.ServiceCall call, Stream<BranchID> request) async {
     print('fetchHouses');
     await for (var branch in request) {
-      print('fetchHouses ${branch.id}');
-      _controllerResponseHouses.add(
-        _getHouses(branch.id),
-      );
+      print('fetchHouses ${branch.key}');
+      if (!_controllerHousesMap.containsKey(branch.key)) {
+        print('not containsKey');
+      }
+      _controllerHousesMap[branch.key]?.add(_getHouses(branch.id));
     }
     print('end fetchHouses');
     return Empty();
@@ -47,7 +50,11 @@ class HogwartsService extends HogwartsServiceBase {
   @override
   Stream<Houses> streamHouses(grpc.ServiceCall call, BranchID request) {
     print('streamHouses');
-    return _controllerResponseHouses.stream;
+    if (!_controllerHousesMap.containsKey(request.key)) {
+      print('connect streamHouses ${request.id}');
+      _controllerHousesMap[request.key] = StreamController<Houses>.broadcast();
+    }
+    return _controllerHousesMap[request.key]!.stream;
   }
 
   @override
@@ -148,4 +155,8 @@ void _removeBranch(Branch branch) {
 void _updateBranch(Branch branch) {
   schoolDb.branches.firstWhere((element) => element.id == branch.id).name =
       branch.name;
+}
+
+extension KeyBranchID on BranchID {
+  String get key => id.toString();
 }

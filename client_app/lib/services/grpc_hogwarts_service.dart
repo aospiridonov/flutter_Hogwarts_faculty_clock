@@ -1,18 +1,15 @@
 import 'package:grpc/grpc.dart';
 import 'package:proto/generated/hogwarts.pbgrpc.dart';
 import 'package:proto/generated/hogwarts.pb.dart' as proto;
-import 'hogwarts_service.dart';
 import 'dart:async';
 import 'dart:io' show Platform;
 
-const port = 5555;
-
-class GrpcHogwartsService implements HogwartsService {
+class GrpcHogwartsService {
   late final HogwartsClient stub;
   late final ClientChannel channel;
 
-  late final StreamController<proto.BranchID> _controllerRequestHouses;
-  late final StreamController<proto.Houses> _controllerResponseHouses;
+  //late final StreamController<proto.BranchID> _controllerRequestHouses;
+  //late final StreamController<proto.Houses> _controllerResponseHouses;
 
   late final StreamController<proto.Branches> _controllerResponseBranches;
 
@@ -33,12 +30,13 @@ class GrpcHogwartsService implements HogwartsService {
 
     stub = HogwartsClient(channel);
 
+/*
     _controllerResponseHouses = StreamController<proto.Houses>.broadcast();
     _controllerResponseHouses.addStream(stub.streamHouses(proto.BranchID()));
 
     _controllerRequestHouses = StreamController<proto.BranchID>.broadcast();
     stub.fetchHouses(_controllerRequestHouses.stream);
-
+*/
     _controllerResponseBranches = StreamController<proto.Branches>.broadcast();
     _controllerResponseBranches.addStream(stub.streamBranches(proto.Empty()));
 /*
@@ -47,14 +45,14 @@ class GrpcHogwartsService implements HogwartsService {
     */
   }
 
-  Stream<Houses> get houses => _controllerResponseHouses.stream;
+  //Stream<Houses> get houses => _controllerResponseHouses.stream;
   Stream<Branches> get branches => _controllerResponseBranches.stream;
 
-  //Stream<Houses> get houses => stub.streamHouses(proto.BranchID());
-
+/*
   void fetchBranch(int branchId) {
     _controllerRequestHouses.add(proto.BranchID(id: branchId));
   }
+*/
 
   Future<Branches> fetchBranches() {
     return stub.fetchBranches(Empty());
@@ -64,6 +62,7 @@ class GrpcHogwartsService implements HogwartsService {
     await stub.connect(Empty());
   }
 
+/*
   Future<void> updatePoints(int branchId, int houseId, int points) async {
     await stub.updatePoints(
       UpdateHousePointsRequest(
@@ -74,6 +73,7 @@ class GrpcHogwartsService implements HogwartsService {
     );
     _controllerRequestHouses.add(proto.BranchID(id: branchId));
   }
+  */
 
   Future<void> dispose() async {
     //TODO: Fix dispose

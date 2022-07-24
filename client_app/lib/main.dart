@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const HogwartsPage(),
       routes: {
-        HomePage.routeName: (_) => const HomePage(),
+        BranchPage.routeName: (_) => const BranchPage(),
         HousePage.routeName: (_) => const HousePage(),
         HogwartsPage.routeName: (_) => const HogwartsPage(),
         BranchEditPage.routeName: (_) => const BranchEditPage(),
