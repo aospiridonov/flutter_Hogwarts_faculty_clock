@@ -2,11 +2,10 @@ import 'package:client_app/cubits/cubits.dart';
 import 'package:client_app/data/models/models.dart';
 import 'package:client_app/repositories/repositories.dart';
 import 'package:client_app/services/services.dart';
-import 'package:flutter/material.dart';
 import 'package:client_app/widgets/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 class HousePage extends StatelessWidget {
   static const routeName = '/house';
@@ -18,12 +17,13 @@ class HousePage extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as HouseArguments;
     final house = args.house;
     final service = args.service;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(),
       body: Card(
         color: Colors.grey[100],
         child: Padding(
-          padding: const EdgeInsets.all(50),
+          padding: const EdgeInsets.all(10),
           child: BlocProvider(
             create: (context) => HouseCubit(
               GrpcHouseRepository(
@@ -39,18 +39,15 @@ class HousePage extends StatelessWidget {
                   total = 1;
                 }
                 return Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(
-                      height: 100,
-                      width: 100,
-                      //color: Colors.red,
-                      child: SvgPicture.asset('assets/images/${house.image}'),
-                    ),
-                    const SizedBox(height: 25),
-                    SizedBox(
-                      height: 400,
-                      //width: 200,
+                    if (height > 400)
+                      SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: SvgPicture.asset('assets/images/${house.image}'),
+                      ),
+                    const SizedBox(height: 10),
+                    Expanded(
                       child: ChartBar(
                         label: house.name,
                         amount: points,
@@ -60,7 +57,6 @@ class HousePage extends StatelessWidget {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      //crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         ElevatedButton(
                           onPressed: (points < 10)

@@ -36,7 +36,8 @@ class ChartView extends StatelessWidget {
                   }).toList();
 
                   return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [...housesChart]);
                 },
                 initial: () => Container(),
@@ -62,6 +63,7 @@ class _HouseBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         final service = context.read<GrpcBranchService>();
@@ -74,7 +76,7 @@ class _HouseBar extends StatelessWidget {
         );
       },
       child: SizedBox(
-        width: 50,
+        width: width / 5,
         child: ChartBar(
           label: house.name,
           amount: house.points,
