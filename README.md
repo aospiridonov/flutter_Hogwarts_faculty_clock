@@ -29,17 +29,17 @@
 
 1. Перейти в папку скаченного репозитория, запустить терминал и вызвать команду
 
->cd ./service/ && dart bin/service.dart
+>cd ./service/ && dart pub get && dart bin/service.dart
 
 1. Перейти в папку скаченного репозитория, запустить терминал и вызвать команду (отдельный терминал)
 
 - для linux
   
->cd ./client_app/ flutter run --device-id=linux
+>cd ./client_app/ && flutter pub get && flutter run --device-id=linux
 
 - для android emulator (его следует запустить, причем есть баг, сервер иногда приходится запускать раньше, чем сам эмулятор)
   
->cd ./client_app/ flutter run --device-id=emulator
+>cd ./client_app/ && flutter pub get && flutter run --device-id=emulator
 
 ---
 
