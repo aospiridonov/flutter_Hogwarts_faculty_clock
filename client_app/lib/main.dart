@@ -8,7 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,11 +16,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const SchoolPage(),
+      home: const HomePage(),
       routes: {
+        HomePage.routeName: (_) => const HomePage(),
+        SchoolPage.routeName: (_) => const SchoolPage(),
+        DumbledorePage.routeName: (_) => const DumbledorePage(),
         BranchPage.routeName: (_) => const BranchPage(),
         HousePage.routeName: (_) => const HousePage(),
-        SchoolPage.routeName: (_) => const SchoolPage(),
         BranchEditPage.routeName: (_) => const BranchEditPage(),
       },
     );
