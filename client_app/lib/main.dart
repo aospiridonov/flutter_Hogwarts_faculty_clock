@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HogwartsPage(),
+      home: const SchoolPage(),
       routes: {
         BranchPage.routeName: (_) => const BranchPage(),
         HousePage.routeName: (_) => const HousePage(),
-        HogwartsPage.routeName: (_) => const HogwartsPage(),
+        SchoolPage.routeName: (_) => const SchoolPage(),
         BranchEditPage.routeName: (_) => const BranchEditPage(),
       },
     );

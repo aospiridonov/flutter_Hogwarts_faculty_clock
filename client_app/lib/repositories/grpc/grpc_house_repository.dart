@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:client_app/services/grpc_hogwarts_service.dart';
+import 'package:client_app/services/grpc_school_service.dart';
 import 'package:client_app/services/services.dart';
 import 'package:proto/generated/hogwarts.pb.dart' as proto;
 

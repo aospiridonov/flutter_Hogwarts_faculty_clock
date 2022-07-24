@@ -15,6 +15,15 @@ class BranchListTile extends StatelessWidget {
     return Dismissible(
       key: Key('BranchListTile${branch.id}'),
       onDismissed: onDismissed,
+      background: Container(
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.all(20),
+        color: Colors.red,
+        child: const Icon(
+          Icons.delete_outline_rounded,
+          color: Colors.white,
+        ),
+      ),
       direction: DismissDirection.endToStart,
       child: InkWell(
         onTap: onTap,

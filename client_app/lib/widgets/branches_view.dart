@@ -1,6 +1,7 @@
 import 'package:client_app/blocs/blocs.dart';
 import 'package:client_app/pages/pages.dart';
 import 'package:client_app/repositories/repositories.dart';
+import 'package:client_app/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,8 +14,7 @@ class BranchesView extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: getIt get SchoolRepository
     return BlocBuilder<BranchesBloc, BranchesState>(
-      bloc: BranchesBloc(GrpcSchoolRepository())
-        ..add(const BranchesEvent.fetch()),
+      bloc: context.watch<BranchesBloc>(),
       builder: (context, state) => state.when(
         initial: () => const Center(
           child: Text('Initial'),
@@ -28,7 +28,11 @@ class BranchesView extends StatelessWidget {
           itemCount: branches.length,
           itemBuilder: (BuildContext context, int index) => BranchListTile(
             branch: branches[index],
-            onDismissed: (direction) {},
+            onDismissed: (direction) {
+              context
+                  .read<BranchesBloc>()
+                  .add(BranchesEvent.delete(branches[index]));
+            },
             onTap: () {
               Navigator.of(context).pushNamed(
                 BranchPage.routeName,

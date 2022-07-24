@@ -20,18 +20,21 @@ mixin _$BranchesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
     required TResult Function(List<Branch> branches) fetched,
+    required TResult Function(Branch branch) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? fetch,
     TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
     TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$BranchesEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(BranchesEventFetch value) fetch,
     required TResult Function(BranchesEventFetched value) fetched,
+    required TResult Function(BranchesEventDelete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BranchesEventFetch value)? fetch,
     TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BranchesEventFetch value)? fetch,
     TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +122,7 @@ class _$BranchesEventFetch implements BranchesEventFetch {
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
     required TResult Function(List<Branch> branches) fetched,
+    required TResult Function(Branch branch) delete,
   }) {
     return fetch();
   }
@@ -125,6 +132,7 @@ class _$BranchesEventFetch implements BranchesEventFetch {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? fetch,
     TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
   }) {
     return fetch?.call();
   }
@@ -134,6 +142,7 @@ class _$BranchesEventFetch implements BranchesEventFetch {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
     TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -147,6 +156,7 @@ class _$BranchesEventFetch implements BranchesEventFetch {
   TResult map<TResult extends Object?>({
     required TResult Function(BranchesEventFetch value) fetch,
     required TResult Function(BranchesEventFetched value) fetched,
+    required TResult Function(BranchesEventDelete value) delete,
   }) {
     return fetch(this);
   }
@@ -156,6 +166,7 @@ class _$BranchesEventFetch implements BranchesEventFetch {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BranchesEventFetch value)? fetch,
     TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
   }) {
     return fetch?.call(this);
   }
@@ -165,6 +176,7 @@ class _$BranchesEventFetch implements BranchesEventFetch {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BranchesEventFetch value)? fetch,
     TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -251,6 +263,7 @@ class _$BranchesEventFetched implements BranchesEventFetched {
   TResult when<TResult extends Object?>({
     required TResult Function() fetch,
     required TResult Function(List<Branch> branches) fetched,
+    required TResult Function(Branch branch) delete,
   }) {
     return fetched(branches);
   }
@@ -260,6 +273,7 @@ class _$BranchesEventFetched implements BranchesEventFetched {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? fetch,
     TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
   }) {
     return fetched?.call(branches);
   }
@@ -269,6 +283,7 @@ class _$BranchesEventFetched implements BranchesEventFetched {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetch,
     TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
     required TResult orElse(),
   }) {
     if (fetched != null) {
@@ -282,6 +297,7 @@ class _$BranchesEventFetched implements BranchesEventFetched {
   TResult map<TResult extends Object?>({
     required TResult Function(BranchesEventFetch value) fetch,
     required TResult Function(BranchesEventFetched value) fetched,
+    required TResult Function(BranchesEventDelete value) delete,
   }) {
     return fetched(this);
   }
@@ -291,6 +307,7 @@ class _$BranchesEventFetched implements BranchesEventFetched {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(BranchesEventFetch value)? fetch,
     TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
   }) {
     return fetched?.call(this);
   }
@@ -300,6 +317,7 @@ class _$BranchesEventFetched implements BranchesEventFetched {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BranchesEventFetch value)? fetch,
     TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
     required TResult orElse(),
   }) {
     if (fetched != null) {
@@ -316,6 +334,157 @@ abstract class BranchesEventFetched implements BranchesEvent {
   List<Branch> get branches;
   @JsonKey(ignore: true)
   _$$BranchesEventFetchedCopyWith<_$BranchesEventFetched> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BranchesEventDeleteCopyWith<$Res> {
+  factory _$$BranchesEventDeleteCopyWith(_$BranchesEventDelete value,
+          $Res Function(_$BranchesEventDelete) then) =
+      __$$BranchesEventDeleteCopyWithImpl<$Res>;
+  $Res call({Branch branch});
+
+  $BranchCopyWith<$Res> get branch;
+}
+
+/// @nodoc
+class __$$BranchesEventDeleteCopyWithImpl<$Res>
+    extends _$BranchesEventCopyWithImpl<$Res>
+    implements _$$BranchesEventDeleteCopyWith<$Res> {
+  __$$BranchesEventDeleteCopyWithImpl(
+      _$BranchesEventDelete _value, $Res Function(_$BranchesEventDelete) _then)
+      : super(_value, (v) => _then(v as _$BranchesEventDelete));
+
+  @override
+  _$BranchesEventDelete get _value => super._value as _$BranchesEventDelete;
+
+  @override
+  $Res call({
+    Object? branch = freezed,
+  }) {
+    return _then(_$BranchesEventDelete(
+      branch == freezed
+          ? _value.branch
+          : branch // ignore: cast_nullable_to_non_nullable
+              as Branch,
+    ));
+  }
+
+  @override
+  $BranchCopyWith<$Res> get branch {
+    return $BranchCopyWith<$Res>(_value.branch, (value) {
+      return _then(_value.copyWith(branch: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$BranchesEventDelete implements BranchesEventDelete {
+  const _$BranchesEventDelete(this.branch);
+
+  @override
+  final Branch branch;
+
+  @override
+  String toString() {
+    return 'BranchesEvent.delete(branch: $branch)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BranchesEventDelete &&
+            const DeepCollectionEquality().equals(other.branch, branch));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(branch));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$BranchesEventDeleteCopyWith<_$BranchesEventDelete> get copyWith =>
+      __$$BranchesEventDeleteCopyWithImpl<_$BranchesEventDelete>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetch,
+    required TResult Function(List<Branch> branches) fetched,
+    required TResult Function(Branch branch) delete,
+  }) {
+    return delete(branch);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? fetch,
+    TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
+  }) {
+    return delete?.call(branch);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetch,
+    TResult Function(List<Branch> branches)? fetched,
+    TResult Function(Branch branch)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(branch);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BranchesEventFetch value) fetch,
+    required TResult Function(BranchesEventFetched value) fetched,
+    required TResult Function(BranchesEventDelete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BranchesEventFetch value)? fetch,
+    TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BranchesEventFetch value)? fetch,
+    TResult Function(BranchesEventFetched value)? fetched,
+    TResult Function(BranchesEventDelete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BranchesEventDelete implements BranchesEvent {
+  const factory BranchesEventDelete(final Branch branch) =
+      _$BranchesEventDelete;
+
+  Branch get branch;
+  @JsonKey(ignore: true)
+  _$$BranchesEventDeleteCopyWith<_$BranchesEventDelete> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -6,4 +6,8 @@ abstract class SchoolRepository {
   Stream<Branches> get stream;
   Future<Branches> fetch();
   Future<void> dispose();
+
+  Future<void> addBranch(Branch branch);
+  Future<void> removeBranch(Branch branch);
+  Future<void> updateBranch(Branch branch);
 }

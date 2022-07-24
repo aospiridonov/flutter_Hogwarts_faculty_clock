@@ -7,6 +7,7 @@ import 'package:client_app/blocs/blocs.dart';
 import 'package:client_app/widgets/branch_view.dart';
 import 'package:provider/provider.dart';
 
+//TODO: Convert to statless
 class BranchPage extends StatefulWidget {
   static const routeName = '/branch';
 

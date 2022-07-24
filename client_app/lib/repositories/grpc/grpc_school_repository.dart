@@ -1,14 +1,13 @@
 import 'package:client_app/data/models/models.dart';
 import 'package:client_app/repositories/school_repository.dart';
-import 'package:client_app/services/grpc_hogwarts_service.dart';
+import 'package:client_app/services/grpc_school_service.dart';
 import 'package:proto/generated/hogwarts.pb.dart' as proto;
 
 class GrpcSchoolRepository implements SchoolRepository {
-  late final GrpcHogwartsService _service;
+  late final GrpcSchoolService _service;
   late final Stream<proto.Branches> _stream;
 
-  GrpcSchoolRepository() {
-    _service = GrpcHogwartsService.instance;
+  GrpcSchoolRepository(this._service) {
     _stream = _service.branches;
   }
 
@@ -43,5 +42,20 @@ class GrpcSchoolRepository implements SchoolRepository {
     return protoBranches.branches.map((protoBranch) {
       return Branch(id: protoBranch.id, name: protoBranch.name);
     }).toList();
+  }
+
+  @override
+  Future<void> addBranch(Branch branch) async {
+    await _service.addBranch(proto.Branch(id: branch.id, name: branch.name));
+  }
+
+  @override
+  Future<void> removeBranch(Branch branch) async {
+    await _service.removeBranch(proto.Branch(id: branch.id, name: branch.name));
+  }
+
+  @override
+  Future<void> updateBranch(Branch branch) async {
+    await _service.updateBranch(proto.Branch(id: branch.id, name: branch.name));
   }
 }

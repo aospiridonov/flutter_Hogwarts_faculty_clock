@@ -21,6 +21,7 @@ class BranchesBloc extends Bloc<BranchesEvent, BranchesState> {
 
     on<BranchesEventFetch>(_onFetch);
     on<BranchesEventFetched>(_onFetched);
+    on<BranchesEventDelete>(_onDeleteBranch);
   }
 
   Future<void> _onFetch(
@@ -41,5 +42,11 @@ class BranchesBloc extends Bloc<BranchesEvent, BranchesState> {
     Emitter<BranchesState> emit,
   ) async {
     emit(BranchesState.loaded(branches: event.branches));
+  }
+
+  FutureOr<void> _onDeleteBranch(
+      BranchesEventDelete event, Emitter<BranchesState> emit) async {
+    emit(const BranchesState.loading());
+    await _repository.removeBranch(event.branch);
   }
 }

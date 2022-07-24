@@ -1,54 +1,28 @@
+import 'package:client_app/blocs/blocs.dart';
+import 'package:client_app/repositories/repositories.dart';
+import 'package:client_app/services/services.dart';
+import 'package:client_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BranchEditPage extends StatefulWidget {
+class BranchEditPage extends StatelessWidget {
   static const routeName = '/branchEdit';
   const BranchEditPage({Key? key}) : super(key: key);
 
   @override
-  State<BranchEditPage> createState() => _BranchEditPageState();
-}
-
-class _BranchEditPageState extends State<BranchEditPage> {
-  late final _controller = TextEditingController();
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('New branch'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Card(
-          margin: const EdgeInsets.all(20),
-          child: Container(
-            padding: EdgeInsets.all(10),
-            height: 120,
-            child: Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  TextField(
-                    controller: _controller,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      print(_controller.text);
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('Add'),
-                  )
-                ],
-              ),
-            ),
-          ),
+    return BlocProvider(
+      create: (context) => EditBranchBloc(
+        GrpcSchoolRepository(
+          GrpcSchoolService(), //TODO: give up tree or params
         ),
+      ),
+      child: BlocListener<EditBranchBloc, EditBranchState>(
+        listenWhen: (previous, current) =>
+            previous.status != current.status &&
+            current.status == EditStatus.success,
+        listener: (context, state) => Navigator.of(context).pop(),
+        child: const BranchEditView(),
       ),
     );
   }
