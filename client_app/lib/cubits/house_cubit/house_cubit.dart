@@ -37,4 +37,10 @@ class HouseCubit extends Cubit<HouseState> {
     await _repository.decrement(points);
     //await load();
   }
+
+  @override
+  Future<void> close() {
+    _subscription.cancel();
+    return super.close();
+  }
 }
