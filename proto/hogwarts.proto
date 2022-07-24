@@ -5,6 +5,7 @@ service Hogwarts {
     rpc connect(Empty) returns (Empty);
     
     //house
+    rpc GetBranch(BranchID) returns(Branch);
     rpc UpdatePoints(UpdateHousePointsRequest) returns (Empty);
     rpc FetchHouses(stream BranchID) returns (Empty);
     rpc StreamHouses(BranchID) returns (stream Houses);

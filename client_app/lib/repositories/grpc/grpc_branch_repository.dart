@@ -21,6 +21,12 @@ class GrpcBranchRepository implements BranchRepository {
   }
 
   @override
+  Future<Branch> get branch async {
+    final protoBranch = await _service.branch;
+    return Branch(id: protoBranch.id, name: protoBranch.name);
+  }
+
+  @override
   Stream<Houses> get stream async* {
     await for (var protoHouses in _stream) {
       yield protoHouses.houses.map((protoHouse) {
@@ -41,11 +47,5 @@ class GrpcBranchRepository implements BranchRepository {
   @override
   Future<void> dispose() async {
     //_service.dispose();
-  }
-
-  @override
-  Future<Branch> getBranch(int id) {
-    // TODO: implement getBranch
-    throw UnimplementedError();
   }
 }

@@ -12,7 +12,6 @@ class BranchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = context.watch<BranchBloc>();
-
     final state = bloc.state;
 
     return Scaffold(

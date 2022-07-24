@@ -13,7 +13,7 @@ class BranchBloc extends Bloc<BranchEvent, BranchState> {
   final BranchRepository _repository;
   late final StreamSubscription<Houses> _branchSubscription;
 
-  late final Branch _branch;
+  late Branch _branch;
 
   BranchBloc(this._repository) : super(const BranchState.initial()) {
     _branchSubscription = _repository.stream.listen((houses) {
@@ -24,11 +24,12 @@ class BranchBloc extends Bloc<BranchEvent, BranchState> {
     on<BranchEventFetch>(_onGet);
     //_repository.
 
-    _branch = Branch(name: 'asdasdasd', id: 1); //TODO: get into Branch
-    _repository.
+    _branch = Branch(name: 'Branch', id: 0); //TODO: get into Branch
   }
 
-  Branch get branch => _branch;
+  Branch get branch {
+    return _branch;
+  }
 
   void _onGet(
     BranchEventFetch event,
@@ -38,6 +39,7 @@ class BranchBloc extends Bloc<BranchEvent, BranchState> {
 
     try {
       await _repository.fetch();
+      _branch = await _repository.branch;
     } catch (_) {
       emit(const BranchState.error());
     }

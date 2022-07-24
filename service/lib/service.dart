@@ -89,6 +89,11 @@ class HogwartsService extends HogwartsServiceBase {
     _controllerResponseBranches.add(_getBranches());
     return State(status: 0);
   }
+
+  @override
+  Future<Branch> getBranch(grpc.ServiceCall call, BranchID request) async {
+    return _getBranch(request.id);
+  }
 }
 
 class Server {
@@ -97,6 +102,14 @@ class Server {
     await server.serve(port: 5555);
     print('Serving on the port: ${server.port}');
   }
+}
+
+Branch _getBranch(int branchId) {
+  final branch = schoolDb.branches.firstWhere(
+    (element) => element.id == branchId,
+    orElse: () => BranchModel(id: -1),
+  );
+  return Branch(id: branch.id, name: branch.name);
 }
 
 Houses _getHouses(int branchId) {

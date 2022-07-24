@@ -4,4 +4,5 @@ abstract class BranchRepository {
   Stream<Houses> get stream;
   Future<void> fetch();
   Future<void> dispose();
+  Future<Branch> get branch;
 }

@@ -18,6 +18,10 @@ class HogwartsClient extends $grpc.Client {
       '/Hogwarts/connect',
       ($0.Empty value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+  static final _$getBranch = $grpc.ClientMethod<$0.BranchID, $0.Branch>(
+      '/Hogwarts/GetBranch',
+      ($0.BranchID value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Branch.fromBuffer(value));
   static final _$updatePoints =
       $grpc.ClientMethod<$0.UpdateHousePointsRequest, $0.Empty>(
           '/Hogwarts/UpdatePoints',
@@ -60,6 +64,11 @@ class HogwartsClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.Empty> connect($0.Empty request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$connect, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Branch> getBranch($0.BranchID request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getBranch, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.Empty> updatePoints(
@@ -120,6 +129,13 @@ abstract class HogwartsServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.BranchID, $0.Branch>(
+        'GetBranch',
+        getBranch_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.BranchID.fromBuffer(value),
+        ($0.Branch value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.UpdateHousePointsRequest, $0.Empty>(
         'UpdatePoints',
         updatePoints_Pre,
@@ -184,6 +200,11 @@ abstract class HogwartsServiceBase extends $grpc.Service {
     return connect(call, await request);
   }
 
+  $async.Future<$0.Branch> getBranch_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.BranchID> request) async {
+    return getBranch(call, await request);
+  }
+
   $async.Future<$0.Empty> updatePoints_Pre($grpc.ServiceCall call,
       $async.Future<$0.UpdateHousePointsRequest> request) async {
     return updatePoints(call, await request);
@@ -220,6 +241,8 @@ abstract class HogwartsServiceBase extends $grpc.Service {
   }
 
   $async.Future<$0.Empty> connect($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.Branch> getBranch(
+      $grpc.ServiceCall call, $0.BranchID request);
   $async.Future<$0.Empty> updatePoints(
       $grpc.ServiceCall call, $0.UpdateHousePointsRequest request);
   $async.Future<$0.Empty> fetchHouses(
