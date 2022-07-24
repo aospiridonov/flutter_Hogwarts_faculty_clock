@@ -35,8 +35,8 @@ class BranchBloc extends Bloc<BranchEvent, BranchState> {
     emit(const BranchState.loading());
 
     try {
-      await _repository.fetch();
       _branch = await _repository.branch;
+      await _repository.fetch();
     } catch (_) {
       emit(const BranchState.error());
     }

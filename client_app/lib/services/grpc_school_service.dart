@@ -35,12 +35,6 @@ class GrpcSchoolService {
 
   Stream<Branches> get branches => _controllerResponseBranches.stream;
 
-/*
-  void fetchBranch(int branchId) {
-    _controllerRequestHouses.add(proto.BranchID(id: branchId));
-  }
-*/
-
   Future<void> addBranch(Branch branch) async {
     await stub.addBranch(branch);
   }
