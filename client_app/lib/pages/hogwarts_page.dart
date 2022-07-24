@@ -14,6 +14,7 @@ class HogwartsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hogwarts'),
+        centerTitle: true,
       ),
       body: const BranchesView(),
       floatingActionButton: FloatingActionButton(

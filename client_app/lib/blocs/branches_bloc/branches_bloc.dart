@@ -16,11 +16,8 @@ class BranchesBloc extends Bloc<BranchesEvent, BranchesState> {
   late final StreamSubscription<Branches> _subscription;
 
   BranchesBloc(this._repository) : super(const BranchesState.initial()) {
-    _subscription = _repository.stream.listen(
-      (branches) {
-        add(BranchesEventFetched(branches));
-      },
-    );
+    _subscription = _repository.stream
+        .listen((branches) => add(BranchesEventFetched(branches)));
 
     on<BranchesEventFetch>(_onFetch);
     on<BranchesEventFetched>(_onFetched);
@@ -37,14 +34,6 @@ class BranchesBloc extends Bloc<BranchesEvent, BranchesState> {
     } catch (_) {
       emit(const BranchesState.failure());
     }
-    /*
-    await emit.forEach<Branches>(
-      _repository.stream,
-      onData: (branches) => BranchesState.loaded(branches: branches),
-      onError: (_, __) => const BranchesState.failure(),
-    );
-    */
-    //emit(const BranchesState.loading());
   }
 
   Future<void> _onFetched(

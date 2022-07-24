@@ -27,8 +27,8 @@ class GrpcBranchService {
       host, //'10.0.2.2', //
       port: 5555,
       options: const ChannelOptions(
-        credentials: ChannelCredentials.insecure(),
-      ),
+          credentials: ChannelCredentials.insecure(),
+          ),
     );
 
     stub = HogwartsClient(channel);

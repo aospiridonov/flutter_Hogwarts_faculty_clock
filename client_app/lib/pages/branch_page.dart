@@ -22,6 +22,7 @@ class _BranchPageState extends State<BranchPage> {
     final branchId = (ModalRoute.of(context)?.settings.arguments ?? 0) as int;
     return Provider(
       create: (_) => GrpcBranchService(branchId),
+      dispose: (_, GrpcBranchService service) => service.dispose(),
       lazy: false,
       child: BlocProvider(
         create: (context) => BranchBloc(

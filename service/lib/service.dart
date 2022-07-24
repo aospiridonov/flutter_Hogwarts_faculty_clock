@@ -97,10 +97,12 @@ class HogwartsService extends HogwartsServiceBase {
 }
 
 class Server {
+  late final grpc.Server _server;
   Future<void> run() async {
-    final server = grpc.Server([HogwartsService()]);
-    await server.serve(port: 5555);
-    print('Serving on the port: ${server.port}');
+    _server = grpc.Server([HogwartsService()]);
+    //TODO: add interceptor
+    await _server.serve(port: 5555);
+    print('Serving on the port: ${_server.port}');
   }
 }
 

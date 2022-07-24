@@ -12,31 +12,17 @@ class HouseCubit extends Cubit<HouseState> {
   late final StreamSubscription<List<int>> _subscription;
 
   HouseCubit(this._repository) : super(const HouseState.points(0, 1)) {
-    _subscription = _repository.stream.listen(
-      (values) {
-        emit(HouseState.points(values[0], values[1]));
-        //add(HogwartsBranchEventFetched(houses));
-      },
-    );
+    _subscription = _repository.stream
+        .listen((values) => emit(HouseState.points(values[0], values[1])));
   }
 
-  Future<void> load() async {
-    _repository.fetch();
-    /*final points = await _repository.points;
-    final total = await _repository.total;
-    emit(HouseState.points(points, total));
-    */
-  }
+  Future<void> load() async => _repository.fetch();
 
-  Future<void> increment(int points) async {
-    await _repository.increment(points);
-    //await load();
-  }
+  Future<void> increment(int points) async =>
+      await _repository.increment(points);
 
-  Future<void> decrement(int points) async {
-    await _repository.decrement(points);
-    //await load();
-  }
+  Future<void> decrement(int points) async =>
+      await _repository.decrement(points);
 
   @override
   Future<void> close() {
