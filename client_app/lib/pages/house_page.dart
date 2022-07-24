@@ -35,6 +35,9 @@ class HousePage extends StatelessWidget {
               builder: (context, state) {
                 int points = state.points;
                 int total = state.total;
+                if (total == 0) {
+                  total = 1;
+                }
                 return Column(
                   //mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [

@@ -159,7 +159,7 @@ void _addBranch(Branch branch) {
 
   var newBranch = BranchModel(id: id, name: branch.name)
     ..houses.addAll(makeHouses());
-
+  print(newBranch);
   schoolDb.branches.add(newBranch);
 }
 

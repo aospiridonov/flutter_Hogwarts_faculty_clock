@@ -24,6 +24,9 @@ class ChartView extends StatelessWidget {
                     const CircularProgressIndicator.adaptive(strokeWidth: 2),
                 loaded: (List<House> houses) {
                   int total = houses.fold(0, (p, e) => p + e.points);
+                  if (total == 0) {
+                    total = 1;
+                  }
                   var housesChart = houses.map((house) {
                     return _HouseBar(
                       branchId: 0,
