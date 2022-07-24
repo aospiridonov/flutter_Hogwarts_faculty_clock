@@ -2,8 +2,6 @@ syntax = "proto3";
 
 // Interface by server.
 service Hogwarts {
-    rpc connect(Empty) returns (Empty);
-    
     //house
     rpc GetBranch(BranchID) returns(Branch);
     rpc UpdatePoints(UpdateHousePointsRequest) returns (Empty);
@@ -16,6 +14,11 @@ service Hogwarts {
     rpc AddBranch(Branch)    returns (State);
     rpc RemoveBranch(Branch) returns (State);
     rpc UpdateBranch(Branch) returns (State);
+    
+    // connections
+    rpc Connect(Connection) returns (Empty);
+    rpc GetConnections(Empty) returns (Connections);
+    rpc StreamConnections(Empty) returns (stream Connection);
 }
 
 message Empty {}
@@ -55,6 +58,15 @@ message Branch {
 
 message Branches {
     repeated Branch branches = 1;
+}
+
+message Connection{
+    uint64 timestamp = 1;
+    map<string, string> info = 2; 
+}
+
+message Connections{
+    repeated Connection infos = 1;
 }
 
 // data model

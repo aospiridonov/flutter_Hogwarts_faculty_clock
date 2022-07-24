@@ -4,6 +4,8 @@ import 'package:proto/generated/hogwarts.pb.dart' as proto;
 import 'dart:async';
 import 'dart:io' show Platform;
 
+import 'package:device_info_plus/device_info_plus.dart';
+
 class GrpcSchoolService {
   late final HogwartsClient stub;
   late final ClientChannel channel;
@@ -28,6 +30,7 @@ class GrpcSchoolService {
 
     _controllerResponseBranches = StreamController<proto.Branches>.broadcast();
     _controllerResponseBranches.addStream(stub.streamBranches(proto.Empty()));
+    connect();
   }
 
   Stream<Branches> get branches => _controllerResponseBranches.stream;
@@ -55,7 +58,13 @@ class GrpcSchoolService {
   }
 
   Future<void> connect() async {
-    await stub.connect(Empty());
+    final deviceInfoPlugin = DeviceInfoPlugin();
+    final deviceInfo = await deviceInfoPlugin.deviceInfo;
+    final map = deviceInfo.toMap();
+    final val = map.map<String, String>((key, value) {
+      return MapEntry(key, value.toString());
+    });
+    await stub.connect(Connection(info: val));
   }
 
   Future<void> dispose() async {

@@ -14,10 +14,6 @@ import 'hogwarts.pb.dart' as $0;
 export 'hogwarts.pb.dart';
 
 class HogwartsClient extends $grpc.Client {
-  static final _$connect = $grpc.ClientMethod<$0.Empty, $0.Empty>(
-      '/Hogwarts/connect',
-      ($0.Empty value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
   static final _$getBranch = $grpc.ClientMethod<$0.BranchID, $0.Branch>(
       '/Hogwarts/GetBranch',
       ($0.BranchID value) => value.writeToBuffer(),
@@ -55,16 +51,24 @@ class HogwartsClient extends $grpc.Client {
       '/Hogwarts/UpdateBranch',
       ($0.Branch value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.State.fromBuffer(value));
+  static final _$connect = $grpc.ClientMethod<$0.Connection, $0.Empty>(
+      '/Hogwarts/Connect',
+      ($0.Connection value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+  static final _$getConnections = $grpc.ClientMethod<$0.Empty, $0.Connections>(
+      '/Hogwarts/GetConnections',
+      ($0.Empty value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Connections.fromBuffer(value));
+  static final _$streamConnections =
+      $grpc.ClientMethod<$0.Empty, $0.Connection>(
+          '/Hogwarts/StreamConnections',
+          ($0.Empty value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.Connection.fromBuffer(value));
 
   HogwartsClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
-
-  $grpc.ResponseFuture<$0.Empty> connect($0.Empty request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$connect, request, options: options);
-  }
 
   $grpc.ResponseFuture<$0.Branch> getBranch($0.BranchID request,
       {$grpc.CallOptions? options}) {
@@ -116,19 +120,29 @@ class HogwartsClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$updateBranch, request, options: options);
   }
+
+  $grpc.ResponseFuture<$0.Empty> connect($0.Connection request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$connect, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Connections> getConnections($0.Empty request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getConnections, request, options: options);
+  }
+
+  $grpc.ResponseStream<$0.Connection> streamConnections($0.Empty request,
+      {$grpc.CallOptions? options}) {
+    return $createStreamingCall(
+        _$streamConnections, $async.Stream.fromIterable([request]),
+        options: options);
+  }
 }
 
 abstract class HogwartsServiceBase extends $grpc.Service {
   $core.String get $name => 'Hogwarts';
 
   HogwartsServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.Empty, $0.Empty>(
-        'connect',
-        connect_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
-        ($0.Empty value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.BranchID, $0.Branch>(
         'GetBranch',
         getBranch_Pre,
@@ -193,11 +207,27 @@ abstract class HogwartsServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Branch.fromBuffer(value),
         ($0.State value) => value.writeToBuffer()));
-  }
-
-  $async.Future<$0.Empty> connect_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
-    return connect(call, await request);
+    $addMethod($grpc.ServiceMethod<$0.Connection, $0.Empty>(
+        'Connect',
+        connect_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Connection.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.Connections>(
+        'GetConnections',
+        getConnections_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.Connections value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.Connection>(
+        'StreamConnections',
+        streamConnections_Pre,
+        false,
+        true,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.Connection value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.Branch> getBranch_Pre(
@@ -240,7 +270,21 @@ abstract class HogwartsServiceBase extends $grpc.Service {
     return updateBranch(call, await request);
   }
 
-  $async.Future<$0.Empty> connect($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.Empty> connect_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Connection> request) async {
+    return connect(call, await request);
+  }
+
+  $async.Future<$0.Connections> getConnections_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+    return getConnections(call, await request);
+  }
+
+  $async.Stream<$0.Connection> streamConnections_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async* {
+    yield* streamConnections(call, await request);
+  }
+
   $async.Future<$0.Branch> getBranch(
       $grpc.ServiceCall call, $0.BranchID request);
   $async.Future<$0.Empty> updatePoints(
@@ -258,4 +302,10 @@ abstract class HogwartsServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.Branch request);
   $async.Future<$0.State> updateBranch(
       $grpc.ServiceCall call, $0.Branch request);
+  $async.Future<$0.Empty> connect(
+      $grpc.ServiceCall call, $0.Connection request);
+  $async.Future<$0.Connections> getConnections(
+      $grpc.ServiceCall call, $0.Empty request);
+  $async.Stream<$0.Connection> streamConnections(
+      $grpc.ServiceCall call, $0.Empty request);
 }

@@ -1,7 +1,5 @@
 import 'package:client_app/blocs/blocs.dart';
 import 'package:client_app/pages/pages.dart';
-import 'package:client_app/repositories/repositories.dart';
-import 'package:client_app/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

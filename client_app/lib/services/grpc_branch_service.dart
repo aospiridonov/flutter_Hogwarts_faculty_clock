@@ -40,7 +40,7 @@ class GrpcBranchService {
     stub.fetchHouses(_controllerRequestHouses.stream);
   }
 
-  Future<void> connect() async => await stub.connect(Empty());
+  //Future<void> connect() async => await stub.connect(Empty());
   Future<Branch> get branch async => await stub.getBranch(_id);
   Stream<Houses> get houses => _controllerResponseHouses.stream;
   Future<void> fetchBranch() async => _controllerRequestHouses.add(_id);

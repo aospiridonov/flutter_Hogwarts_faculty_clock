@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart' as grpc;
 
 import 'package:proto/generated/hogwarts.pbgrpc.dart';
@@ -9,16 +10,15 @@ class HogwartsService extends HogwartsServiceBase {
   late final Map<String, StreamController<Houses>> _controllerHousesMap;
   //late final StreamController<Houses> _controllerResponseHouses;
   late final StreamController<Branches> _controllerResponseBranches;
+  late final StreamController<Connection> _controllerConnections;
+  late final Connections _connections;
 
   HogwartsService() {
     _controllerHousesMap = <String, StreamController<Houses>>{};
     //_controllerResponseHouses = StreamController<Houses>.broadcast();
     _controllerResponseBranches = StreamController<Branches>.broadcast();
-  }
-
-  @override
-  Future<Empty> connect(grpc.ServiceCall call, Empty request) async {
-    return Empty();
+    _controllerConnections = StreamController<Connection>.broadcast();
+    _connections = Connections();
   }
 
   @override
@@ -93,6 +93,29 @@ class HogwartsService extends HogwartsServiceBase {
   @override
   Future<Branch> getBranch(grpc.ServiceCall call, BranchID request) async {
     return _getBranch(request.id);
+  }
+
+  @override
+  Future<Empty> connect(grpc.ServiceCall call, Connection request) async {
+    print('connect');
+    int val = DateTime.now().millisecondsSinceEpoch;
+    request.timestamp = Int64(val);
+
+    _connections.infos.add(request);
+    _controllerConnections.add(request);
+    return Empty();
+  }
+
+  @override
+  Future<Connections> getConnections(
+      grpc.ServiceCall call, Empty request) async {
+    print('getConnections');
+    return _connections;
+  }
+
+  @override
+  Stream<Connection> streamConnections(grpc.ServiceCall call, Empty request) {
+    return _controllerConnections.stream;
   }
 }
 

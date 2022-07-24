@@ -23,7 +23,7 @@ class HogwartsTerminalClient {
 
   Future<void> callService() async {
     print('callService1');
-    await stub.connect(Empty());
+    //await stub.connect(Empty());
     channel.shutdown();
   }
 }

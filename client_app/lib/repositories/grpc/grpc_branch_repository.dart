@@ -16,8 +16,8 @@ class GrpcBranchRepository implements BranchRepository {
 
   @override
   Future<void> fetch() async {
-    await _service.connect();
-    _service.fetchBranch();
+    //await _service.connect();
+    await _service.fetchBranch();
   }
 
   @override

@@ -7,6 +7,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Empty extends $pb.GeneratedMessage {
@@ -423,6 +424,102 @@ class Branches extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<Branch> get branches => $_getList(0);
+}
+
+class Connection extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Connection', createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timestamp', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
+    ..m<$core.String, $core.String>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'info', entryClassName: 'Connection.InfoEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OS)
+    ..hasRequiredFields = false
+  ;
+
+  Connection._() : super();
+  factory Connection({
+    $fixnum.Int64? timestamp,
+    $core.Map<$core.String, $core.String>? info,
+  }) {
+    final _result = create();
+    if (timestamp != null) {
+      _result.timestamp = timestamp;
+    }
+    if (info != null) {
+      _result.info.addAll(info);
+    }
+    return _result;
+  }
+  factory Connection.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Connection.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Connection clone() => Connection()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Connection copyWith(void Function(Connection) updates) => super.copyWith((message) => updates(message as Connection)) as Connection; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Connection create() => Connection._();
+  Connection createEmptyInstance() => create();
+  static $pb.PbList<Connection> createRepeated() => $pb.PbList<Connection>();
+  @$core.pragma('dart2js:noInline')
+  static Connection getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Connection>(create);
+  static Connection? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get timestamp => $_getI64(0);
+  @$pb.TagNumber(1)
+  set timestamp($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasTimestamp() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTimestamp() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.Map<$core.String, $core.String> get info => $_getMap(1);
+}
+
+class Connections extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Connections', createEmptyInstance: create)
+    ..pc<Connection>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'infos', $pb.PbFieldType.PM, subBuilder: Connection.create)
+    ..hasRequiredFields = false
+  ;
+
+  Connections._() : super();
+  factory Connections({
+    $core.Iterable<Connection>? infos,
+  }) {
+    final _result = create();
+    if (infos != null) {
+      _result.infos.addAll(infos);
+    }
+    return _result;
+  }
+  factory Connections.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Connections.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Connections clone() => Connections()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Connections copyWith(void Function(Connections) updates) => super.copyWith((message) => updates(message as Connections)) as Connections; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Connections create() => Connections._();
+  Connections createEmptyInstance() => create();
+  static $pb.PbList<Connections> createRepeated() => $pb.PbList<Connections>();
+  @$core.pragma('dart2js:noInline')
+  static Connections getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Connections>(create);
+  static Connections? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<Connection> get infos => $_getList(0);
 }
 
 class SchoolModel extends $pb.GeneratedMessage {

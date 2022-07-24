@@ -90,6 +90,38 @@ const Branches$json = const {
 
 /// Descriptor for `Branches`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List branchesDescriptor = $convert.base64Decode('CghCcmFuY2hlcxIjCghicmFuY2hlcxgBIAMoCzIHLkJyYW5jaFIIYnJhbmNoZXM=');
+@$core.Deprecated('Use connectionDescriptor instead')
+const Connection$json = const {
+  '1': 'Connection',
+  '2': const [
+    const {'1': 'timestamp', '3': 1, '4': 1, '5': 4, '10': 'timestamp'},
+    const {'1': 'info', '3': 2, '4': 3, '5': 11, '6': '.Connection.InfoEntry', '10': 'info'},
+  ],
+  '3': const [Connection_InfoEntry$json],
+};
+
+@$core.Deprecated('Use connectionDescriptor instead')
+const Connection_InfoEntry$json = const {
+  '1': 'InfoEntry',
+  '2': const [
+    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    const {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
+  ],
+  '7': const {'7': true},
+};
+
+/// Descriptor for `Connection`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List connectionDescriptor = $convert.base64Decode('CgpDb25uZWN0aW9uEhwKCXRpbWVzdGFtcBgBIAEoBFIJdGltZXN0YW1wEikKBGluZm8YAiADKAsyFS5Db25uZWN0aW9uLkluZm9FbnRyeVIEaW5mbxo3CglJbmZvRW50cnkSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUYAiABKAlSBXZhbHVlOgI4AQ==');
+@$core.Deprecated('Use connectionsDescriptor instead')
+const Connections$json = const {
+  '1': 'Connections',
+  '2': const [
+    const {'1': 'infos', '3': 1, '4': 3, '5': 11, '6': '.Connection', '10': 'infos'},
+  ],
+};
+
+/// Descriptor for `Connections`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List connectionsDescriptor = $convert.base64Decode('CgtDb25uZWN0aW9ucxIhCgVpbmZvcxgBIAMoCzILLkNvbm5lY3Rpb25SBWluZm9z');
 @$core.Deprecated('Use schoolModelDescriptor instead')
 const SchoolModel$json = const {
   '1': 'SchoolModel',

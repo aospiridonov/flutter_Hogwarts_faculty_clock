@@ -49,4 +49,10 @@ class BranchesBloc extends Bloc<BranchesEvent, BranchesState> {
     emit(const BranchesState.loading());
     await _repository.removeBranch(event.branch);
   }
+
+  @override
+  Future<void> close() {
+    _subscription.cancel();
+    return super.close();
+  }
 }
